@@ -2,6 +2,33 @@
 
 
 
+
+**Disclaimer**
+
+The opinions stated in this report reflect the opinions of the authors and not the opinion of the European Commission.
+
+All intellectual property rights are owned by the consortium of EUCAIM under terms stated in their Consortium Agreement and are protected by the applicable laws. Reproduction is not authorised without prior written agreement. The commercial use of any information contained in this document may require a licence from the owner of the information.
+
+# 1\. Introduction
+
+EUCAIM is a federated digital infrastructure for the management of medical images in the scope of oncology. EUCAIM aims at addressing the challenges of the European Cancer Imaging Initiative. There are imaging datasets for different types of cancer, but they are widely distributed and they are not easily accessible. EUCAIM aims at addressing the following challenges:
+
+- Foster the use of digital technologies for developing better diagnosis, treatment and prediction in cancer.
+- Integrate resources, data and tools in an open infrastructure of cancer imaging for the development and validation of new tools and strategies.
+- Guarantee privacy, security and trustworthiness in the access and usage of medical images.
+- Contribute to the implementation of the European Health Data Space (EHDS) and the European Open Science Cloud (EOSC).
+
+The benefits of EUCAIM are expected at four levels:
+
+- Researchers will be able to access a digital infrastructure to access, share and process cancer medical imaging and associated data in a pan-European scope.
+- Innovators will be provided with a reference framework with standardised data and state-of-the-art tools to facilitate the benchmarking and certification of new products.
+- Physicians will be able to experiment and clinically validate new tools for diagnosis, prognosis and treatment of cancer.
+- Citizens’ quality of life will be improved by means of early diagnosis, more accurate and personalised treatments.
+
+The platform provides a set of components that facilitate preserving, sharing, accessing and processing medical images, especially in the context of AI development. EUCAIM offers a flexible model for supporting data holders with different levels of maturity, as well as reference storages for those data holders who cannot set up a dedicated federated node, but are able to transfer the data to a reference storage.
+
+This document constitutes the first end-user guide to the platform, especially dedicated to the data users, researchers or innovators who would be interested in accessing the platform to browse and search for data, request access to it and process it.
+
 **Abbreviations**
 
 | **Terms** | **Definitions** |
@@ -38,32 +65,6 @@
 | VAULT | Hasihcorp identity-based secrets and encryption management system |
 | VO  | Virtual Organisation |
 | WP  | Work Package |
-
-**Disclaimer**
-
-The opinions stated in this report reflect the opinions of the authors and not the opinion of the European Commission.
-
-All intellectual property rights are owned by the consortium of EUCAIM under terms stated in their Consortium Agreement and are protected by the applicable laws. Reproduction is not authorised without prior written agreement. The commercial use of any information contained in this document may require a licence from the owner of the information.
-
-# 1\. Introduction
-
-EUCAIM is a federated digital infrastructure for the management of medical images in the scope of oncology. EUCAIM aims at addressing the challenges of the European Cancer Imaging Initiative. There are imaging datasets for different types of cancer, but they are widely distributed and they are not easily accessible. EUCAIM aims at addressing the following challenges:
-
-- Foster the use of digital technologies for developing better diagnosis, treatment and prediction in cancer.
-- Integrate resources, data and tools in an open infrastructure of cancer imaging for the development and validation of new tools and strategies.
-- Guarantee privacy, security and trustworthiness in the access and usage of medical images.
-- Contribute to the implementation of the European Health Data Space (EHDS) and the European Open Science Cloud (EOSC).
-
-The benefits of EUCAIM are expected at four levels:
-
-- Researchers will be able to access a digital infrastructure to access, share and process cancer medical imaging and associated data in a pan-European scope.
-- Innovators will be provided with a reference framework with standardised data and state-of-the-art tools to facilitate the benchmarking and certification of new products.
-- Physicians will be able to experiment and clinically validate new tools for diagnosis, prognosis and treatment of cancer.
-- Citizens’ quality of life will be improved by means of early diagnosis, more accurate and personalised treatments.
-
-The platform provides a set of components that facilitate preserving, sharing, accessing and processing medical images, especially in the context of AI development. EUCAIM offers a flexible model for supporting data holders with different levels of maturity, as well as reference storages for those data holders who cannot set up a dedicated federated node, but are able to transfer the data to a reference storage.
-
-This document constitutes the first end-user guide to the platform, especially dedicated to the data users, researchers or innovators who would be interested in accessing the platform to browse and search for data, request access to it and process it.
 
 **References**
 
