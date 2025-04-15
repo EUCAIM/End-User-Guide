@@ -65,3 +65,22 @@ The platform provides a set of components that facilitate preserving, sharing, a
 
 This document constitutes the first end-user guide to the platform, especially dedicated to the data users, researchers or innovators who would be interested in accessing the platform to browse and search for data, request access to it and process it.
 
+**References**
+
+1. <https://lifescience-ri.eu/ls-login/> [↑](#footnote-ref-1)
+
+2. <https://aarc-20240213064542.local/wp-content/uploads/2019/05/AARC2-DJRA1.4_v2-FINAL.pdf> [↑](#footnote-ref-2)
+
+3. <https://github.com/chaimeleon-eu/jobman> [↑](#footnote-ref-3)
+
+4. <https://ohif.org/> [↑](#footnote-ref-4)
+
+5. <https://lifescience-ri.eu/ls-login/policy-on-the-processing-of-personal-data-of-the-ls-aai-service.html> [↑](#footnote-ref-5)
+
+6. <https://lifescience-ri.eu/ls-login/ls-aai-aup.html> [↑](#footnote-ref-6)
+
+7. <https://signup.aai.lifescience-ri.eu/fed/registrar/?vo=lifescience&group=communities_and_projects:EUCAIM> [↑](#footnote-ref-7)
+
+8. <https://dashboard.eucaim.cancerimage.eu/privacy-policy> [↑](#footnote-ref-8)
+
+9. <https://dashboard.eucaim.cancerimage.eu/eucaim_usage_policy.pdf> [↑](#footnote-ref-9)
