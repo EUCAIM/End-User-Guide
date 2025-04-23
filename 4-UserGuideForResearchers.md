@@ -1,10 +1,10 @@
 # 4. User guide for Researchers
 This guide is designed to help researchers navigate the platform, access data, and understand the procedures in place. The EUCAIM platform facilitates data sharing, reuse, and collaborative research within a governed framework to ensure transparency and compliance.
 
-## 4.1. Platform access
+## 4.1. Platform access
 The access to the platform is managed through the dashboard component, exposed in the https://dashboard.eucaim.cancerimage.eu/ URL, which can be opened in a browser on your computer or mobile device (tablet or smartphone). You can also access the dashboard through the EUCAIM project main website by clicking on “Visit the new dashboard preview!” available at https://cancerimage.eu/. Figure 4 shows a snapshot of the dashboard landing page and the cancerimage.eu main page.
 
-![image](image4-1)
+![image](image4-1.avif)
 
 Figure 4-1. EUCAIM Dashboard, anonymous access (left) and EUCAIM project main webpage (right).
 
@@ -12,7 +12,7 @@ Figure 4-1. EUCAIM Dashboard, anonymous access (left) and EUCAIM project main we
 ### 4.2.1. Collection Summary
 As soon as you access the dashboard, you will find some summary diagrams that allow you to monitor the EUCAIM data population in real time. By hovering over each diagram, you can see information about the available datasets and subjects in each one, the number of studies for each imaging modality, and details of the main body parts to which the images correspond. Figure 5 shows a snapshot of those dynamic graphs.
 
-![image](image4-2)
+![image](image4-2.avif)
 
 Figure 4-2. EUCAIM Dashboard, collection summary.
 ### 4.2.2. Roles information
@@ -28,8 +28,7 @@ Members are organisations, institutions, or companies interested in collaboratio
 
 This user guide is centred on the role of the users. Therefore, by choosing the “Become a User icon”, you will obtain detailed information on which data EUCAIM provides, how the data request process is, the rules of participation and how to log in the platform.
 
-
-![image](image4-3)
+![image](image4-3.avif)
 
 Figure 4-3. EUCAIM Dashboard, collection summary.
 ### 4.2.3. Public Catalogue
@@ -39,33 +38,33 @@ Click the “PUBLIC CATALOGUE” button in the top right corner of the header
 
 Select the "Explore Public Catalog" Highlighted link
 
-![image](image4-4)
+![image](image4-4.avif)
 
 Figure 4-4. EUCAIM Dashboard, how to explore the public catalogue.
 Both options will replace the current page with the Public Catalogue site. You can always return back to the dashboard main page by clicking on "Dashboard EUCAIM" option on the header. Figure 8 shows a snapshot of the catalogue landing page.
 
-![image](image4-5)
+![image](image4-5.avif)
 
 Figure 4-5. EUCAIM Public Catalogue, anonymous view
 The Public Catalogue offers basic search and filtering options to help you find relevant datasets that align with your research interests and objectives. Filters are available in the panel on the left side of the screen. When applying filters, the datasets meeting your criteria will be displayed, as shown in figure 9,
 
-![image](image4-6)
+![image](image4-6.png)
 
 Figure 9. EUCAIM Public Catalogue, how to perform filters.
 By selecting a dataset, clicking on its name, you can view all its relevant information, helping you understand it better. Although you cannot access or visualise the data at this point, thanks to the Public Catalogue, you will be able to see relevant metadata that provides significant information about them. Figure 10 shows a snapshot of the dataset metadata.
 
-![image](image4-7)
+![image](image4-7.avif)
 
 Figure 4-7. EUCAIM Public Catalogue, dataset metadata overview.
 
-![image](image4-8)
+![image](image4-8.avif)
 
 Figure 4-8. EUCAIM Public Catalogue, datasets overview (left) and data relations (right). The repository has several networks, each network has several imaging biobanks, each imaging biobank can have several datasets, and so on.
 This structure allows you to efficiently explore the resources and understand the potential of the platform before committing to the registration process. Research datasets are organised according to the minimal units in which they can be accessed. In some cases, datasets correspond to all the data in a repository related to a specific cancer type. In other cases, datasets correspond to individual data holders, depending on the conditions of the data transfer or data sharing agreements.
 
 Additionally, you will see a special dataset in the catalogue called "Build an Observational Study with RWD." The purpose of this dataset is to provide you with a way to create your own observational study by collecting data that is not yet available in the catalogue through our stakeholders network.
 
-![image](image4-9)
+![image](image4-9.avif)
 
 Figure 4-9. EUCAIM Public Catalogue, dataset for building an observational study.
 Note that the observational study dataset does not contain information by itself, which will be collected on demand.
@@ -74,12 +73,12 @@ Note that the observational study dataset does not contain information by itself
 
 Additionally, in the dashboard main page (see figure 13), you can watch our latest platform webinar, held in March 2024, which provides a comprehensive tutorial on how to use the platform and access the components, as well as addresses several interesting questions from participants.
 
-![image](image4-10)
+![image](image4-10.avif)
 
 Figure 4-10. EUCAIM Dashboard’s webinar.
 It is important to state that EUCAIM is a federation that uses several applications and services from a widespread community. As shown in figure 14, you can explore and learn more about the technologies our platform relies on, by clicking on each logo. These technologies are developed by key collaborations as well as by third parties.
 
-![image](image4-11)
+![image](image4-11.avif)
 
 Figure 4-11. EUCAIM Dashboard, anonymous access.
 ## 4.3. User’s registration
@@ -89,7 +88,7 @@ Access the “My Profile” area of the Dashboard
 
 Scroll to the bottom of the "Become a User" section and click on the "Become a User now" button.
 
-![image](image4-12)
+![image](image4-12.avif)
 
 Figure 4-12. EUCAIM Dashboard, user’s registration through “My Profile” area (top) and from “Become a User” area (bottom).
 Annex I. Registration of Users in EUCAIM shows how to create an account in the AAI system in EUCAIM through the EUCAIM Dashboard. It describes in detail the process of creating a Life Science AAI account and the request for membership in the EUCAIM Group.
@@ -97,13 +96,13 @@ Annex I. Registration of Users in EUCAIM shows how to create an account in the A
 ## 4.4. Accessing the components
 As an authenticated user, you can now access all the components available in the platform, from the header of the dashboard (see figure 16).
 
-![image](image4-13)
+![image](image4-13.avif)
 
 Figure 4-13. EUCAIM Dashboard, authenticated access.
 ## 4.5. Searching data
 As an authenticated user, a deeper search of the data can be done using the Federated Query component. This component allows for an advanced search across multiple sources.
 
-![image](image4-14)
+![image](image4-14.avif)
 
 Figure 4-14. EUCAIM Federated Query
 The Federated Query component provides various filters to refine your search (see figure 17). These filters are available at the right panel and include:
