@@ -8,48 +8,7 @@ The EUCAIM architecture focuses on a federated model in which nodes connect to t
 
 [Figure 1](#fig_architecture_EUCAIM) shows a simplified diagram of the architecture explaining the interactions among the components according to the tier model.
 
-Dashboard
-
-**Catalogue**
-
-**Federated Search**
-
-Negotiator
-
-**Distributed Processing**
-
-**FAIR Data Point harvester**
-
-**Query Mediator**
-
-Local Access Service
-
-**Materializator**
-
-Local Searching Service
-
-Local
-
-Catalogue
-
-Local Data
-
-Local Processing Environment
-
-Core services
-
-Federated  
-Node
-
-_User access_
-
-**Tier 1**
-
-**Tier 2**
-
-**Tier 3**
-
-LS-AAI
+![image](figures/image2-1.avif)
 
 [Figure 1](#figur_architecture_EUCAIM). Simplified architecture diagram of EUCAIM.
 
