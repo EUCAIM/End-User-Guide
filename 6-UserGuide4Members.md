@@ -115,6 +115,19 @@ The setup of a federated node requires the provision of storage and computing re
 - Tier 2: Set up a mediator component to adapt the API of the federated search explorer to the local search API, matching the format defined in the hyperontology for the searching terms.
 - Tier 3: Set up a processing environment and a materialisator for the federated processing.
 
+The recommendations for the hardware of the federated node are the following:
+| Hardware | Option 1 | Option 2 | Description |
+| :------- | :------- | :------- | :---------- |
+| *CPU* | Minimum Cores: 16 >=1.8GHZ | Minimum Cores: 12 >=3.0Ghz| <ul><li>If a GPU is not present, a server-grade, high core-count CPU is necessary for the Second Prototype. </li><li>If not comparable by cores, the ideal thread count is 24+.</li></ul>|
+| *RAM* | 64GB | | <ul><li>  DDR5 is ideal.</li><li> ECC memory is highly recommended for stability. </li></ul>|
+| *Motherboard* | 4+ RAM Slot || <ul><li> Make sure to double check the compatibility of selected CPUs with the Chipset of the motherboard. </li><li> In the case of DDR5, double check motherboard compatibility with DDR5. </li></ul>|
+| *Storage* |<ul><li>  521 GB SSD Drive for Operating System (Either NVMe M.2 PCI Gen4 or SATA III) </li><li> 1TB++ SATA III Drive (SSD or HDD) for local storage of medical data</li></ul> || <ul><li> M.2, NVMe, Gen4 Drives are suggested for the OS </li><li> For data storage size, Data Holders (DH) are expected to plan their purchase depending on the size of the Data they will provide. 1TB is a minimum, with some DHs already planning for 2 TB + datasets. </li><li> For data storage, SSD are preferred for speed but are not mandatory. </li></ul> |
+| *Graphics card* | NVIDIA Quadro | NVIDIA RTX 3XXXi | <ul><li> 12GB RAM+ is preferred. </li><li> Maximizing the amount of Tensor Cores is a priority, most recent GPUs will generally have higher Tensor Core counts. </li><li> Ampere and Volta architectures are preferred.</li></ul> |
+| *Operating System* | Linux | | <ul><li> The latest version of any mainstream Linux distribution is acceptable: Ubuntu, Alpine or other. </li><li> Windows is NOT acceptable, unless absolutely impossible for a DP to setup a Linux environment.</li></ul> |
+| *Power Supply* | || <ul><li>  Each DH must make calculations depending on the hardware setup that will be selected to make sure that needed Wattage is covered and ideally exceeded to prepare for any future upgrades to the machine.</li></ul> |
+| *Internet* | 100mbps (baseline) || <ul><li> Each DH must make best efforts to provide the best possible connection to their Node. Network performance will directly affect node stability and can invalidate AI training or prevent successful demonstrations of the platform.</li></ul> |
+
+
 ## 6.3.1. Tier 1 compliance
 The compliance at the Tier 1 level implies that the metadata of the datasets follow the  EUCAIM DCAT-AP specification. In this case, the data holder can decide to register the datasets directly on the EUCAIM public catalogue or to set up its own federated registry. At this moment in time, we recommend the former, as the harvester will be released soon. 
 The registration of the dataset on the public catalogue. has been described in section 6.2.2.4. The set up of a local catalogue is optional and comprise the following actions:
