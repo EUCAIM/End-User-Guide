@@ -107,3 +107,48 @@ The information on the access history is available through the UPV reference nod
 
 ### 6.2.3. Data Transfer to the HealthRI reference node
 XXXX
+
+
+## 6.3. Contribution through a Federated Node
+The setup of a federated node requires the provision of storage and computing resources, as well as the setup of the federation services and the development of the adaptors.  The federated node implies the following actions, according to each interoperability layer:
+- Tier 1: (Optional) Set up a local catalogue and federate it to the central catalogue.
+- Tier 2: Set up a mediator component to adapt the API of the federated search explorer to the local search API, matching the format defined in the hyperontology for the searching terms.
+- Tier 3: Set up a processing environment and a materialisator for the federated processing.
+
+## 6.3.1. Tier 1 compliance
+The compliance at the Tier 1 level implies that the metadata of the datasets follow the  EUCAIM DCAT-AP specification. In this case, the data holder can decide to register the datasets directly on the EUCAIM public catalogue or to set up its own federated registry. At this moment in time, we recommend the former, as the harvester will be released soon. 
+The registration of the dataset on the public catalogue. has been described in section 6.2.2.4. The set up of a local catalogue is optional and comprise the following actions:
+- Dataset metadata preparation. This implies identifying the data to be shared and packaged into a dataset, the extraction of the metadata and the appropriate coding into the EUCAIM DCAT-AP terminology and vocabularies. This has been covered in section 6.2.2.3 of this document.
+- Setup of a local instance of the catalogue. We recommend using Molgenis and the Catalogue application developed by ErasmusMC. Deployment can be done through a Docker container or a Kubernetes manifest. The catalogue implies a molgenis instance, a postgress database and a catalogue application. The catalogue code is available in [GitLab](https://gitlab.com/radiology/infrastructure/studies/eucaim/molgenis-emx2-eucaim), including the [Dockerfile](https://gitlab.com/radiology/infrastructure/studies/eucaim/molgenis-emx2-eucaim/-/blob/feature/rewrite_build/Dockerfile?ref_type=heads) of the catalogue container and the [Docker Compose](https://gitlab.com/radiology/infrastructure/studies/eucaim/molgenis-emx2-eucaim/-/raw/master/docker-compose.yml?ref_type=heads) file.
+- Population of the data following the IM interoperability schema. A sample file can be used to fill-in the information of the datasets and to create the schemas on the database.
+- In the coming future, we will support the federation of datasets through a pull model in which datasets’ metadata is harvested by the central catalogue. This will require deploying a local registry and populating it with the information of the DH’s datasets.
+
+## 6.3.2. Tier 2 compliance
+
+The Tier 2 compliance implies that the data that is hosted at the federated node can be searched according to the searching variables defined in the CDM. At this point it is assumed that:
+- The Data Holder has set up a repository with the imaging and clinical data.
+- The repository has a searching endpoint that can be accessed to retrieve the number of subjects and studies that fulfil a specific filtering criteria.
+
+## 6.3.3. Tier 3 compliance
+
+The following is the usual “step-by-step” procedure to deploy FEM-client, the component responsible for connecting a node to the EUCAIM’s federated network. 
+
+#### Clarifying Key Points
+1. Instructions assume that the software will be installed in a single host (or Virtual machine), isolated from the internal network at the site, able to run Docker containers. Other setups will require a specific adaptation.
+2. The FEM-client requires only outbound connections to RabbitMQ message broker and to FEM-Orchestrator. Connections are encrypted using node-specific credentials.  
+3. No inbound connections or connection to other nodes are required.
+4. Data never leaves your host machine. Only results (e.g., model weights) are shared.
+5. During installation, you’ll be required to define a read-only $DATA_PATH that will hold to your local datasets (formatted according to EUCAIM requirements), and a writable $SANDBOX_PATH that tools will use for temporary and final outputs. 
+6. Tools will be executed as docker containers. Docker Images will be available from EUCAIM central registry, and will follow EUCAIM agreed security requirements. 
+
+#### Procedure
+1. Express Your Interest
+- Start by sending an email to the FEM technical team expressing your interest in joining the federated system.
+2. Initial Guidance
+- A member of the UB/BSC team will respond with a link to the FEM-client repository: https://gitlab.bsc.es/fl/fem-client
+- The README includes key information, especially in the "Prerequisites" and "Getting Started" sections.
+3. Credentials Delivery
+- Once you're ready to deploy, confirm with the team.
+- Technical team will then send you a separate email containing your FEM-client credentials.
+4. Final Setup & Testing
+- After setup, we’ll run some tests to verify: 1) Network connectivity; 2) FEM-client’s ability to access local infrastructure and trigger container executions; and 3) materialization of data for EUCAIM.
