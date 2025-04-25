@@ -106,8 +106,7 @@ The operations of creation, access and batch processing to a specific dataset ar
 The information on the access history is available through the UPV reference node dashboard in https://eucaim-node.i3m.upv.es/dataset-service, and can be queried to the REST API using the GET operation on the endpoint [https://eucaim-node.i3m.upv.es/tracer-service/tracer/api/v1/traces?datasetId=dataset-id](https://eucaim-node.i3m.upv.es/tracer-service/tracer/api/v1/traces?datasetId=dataset-id), provided that the user has the proper credentials.
 
 ### 6.2.3. Data Transfer to the HealthRI reference node
-XXXX
-
+See detailed instructions on how to use the Clinical Trial Processor (CTP) in this [guide](https://gitlab.com/radiology/infrastructure/data-curation-tools/ctp-standalone/-/blob/a195e33ff9711da8e5abefc8285c443b40b8502a/Manuals/EUCAIM%20XNAT%20Central%20Repository.pdf).
 
 ## 6.3. Contribution through a Federated Node
 The setup of a federated node requires the provision of storage and computing resources, as well as the setup of the federation services and the development of the adaptors.  The federated node implies the following actions, according to each interoperability layer:
