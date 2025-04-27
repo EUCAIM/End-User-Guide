@@ -2,20 +2,15 @@
 ## 5.1. Enrolment
 This guide is designed to help Software providers navigate the platform and understand the procedures in place. If you keep browsing the dashboard, you will find different ‘Become a’ sections corresponding to the four main roles that can be part of EUCAIM.
 
-![image](figures/image5-1.avif)
+![Figure 5-1. EUCAIM Dashboard, user roles information.](figures/image5-1.avif)
 
-Figure 5-1. EUCAIM Dashboard, user roles information.
 By choosing the Become a Software Provider icon, you will obtain detailed information about EUCAIM software specifications and the rules of participation.
 
 Finally, at the end of the page, you will have the opportunity to start the process of becoming a Software provider by fulfilling the Expression of Interest for new Stakeholders.
 
-![image](figures/image5-2.avif)
+![Figure 5-2. EUCAIM Dashboard, how to become a Software Provider](figures/image5-2.avif)
 
-Figure 5-2. EUCAIM Dashboard, how to become a Software Provider.
-
-![image](figures/image5-3.avif)
-
-Figure 5-3. EUCAIM Dashboard, Expression of Interest.
+![Figure 5-3. EUCAIM Dashboard, Expression of Interest.](figures/image5-3.avif)
 
 Once you have expressed the interest to become a software provider, you will be invited to submit an application that will be reviewed by the access committee. Additional information about the requirements of applications running in the EUCAIM platform can be found in https://github.com/chaimeleon-eu/workstation-images. The Technical Team will contact you, by means of the Helpdesk, to assist you in the preparation and validation of your tools.
 
@@ -202,14 +197,12 @@ EUCAIM provides a software registry for those applications that has to be update
 
 The EUCAIM Software Registry is restricted to users in the Harbor subgroup of the EUCAIM VO ([https://perun.aai.lifescience-ri.eu/organizations/3345/groups/43153](https://perun.aai.lifescience-ri.eu/organizations/3345/groups/43153)). Enrolment to this subgroup can be requested on the first access to the registry. A valid LS-AAI account is needed.  Next figure shows the page that will be shown at the first access time and the form to be filled in to request access to the subgroup.
 
-![image](figures/image5-4.avif)
+![Figure 5.4. Landing page when you access the harbor registry for the first time (left) and registration in the harbor subgroup (right).](figures/image5-4.avif)
 
-Figure 5.4. Landing page when you access the harbor registry for the first time (left) and registration in the harbor subgroup (right).
 Data holders can grant access to pull software artifacts once they register in the platform through the specific section in the Dashboard (see section 6). Only Software developers can push SW artifacts in the repository, which have to be validated by the technical committee. Software developers register through the form indicated at the beginning of this section.
 
-![image](figures/image5-5.avif)
+![Figure 5.5. View of the user profile option (left) and the information on the user profile (right) in the SW registry of EUCAIM.](figures/image5-5.avif)
 
-Figure 5.5. View of the user profile option (left) and the information on the user profile (right) in the SW registry of EUCAIM.
 Two subrepositories (projects in the harbor jargon) are available:
 - ingestion-tools, for tools developed to prepare or upload the data by the data holders. These tools would be downloadable and could be used by the Data Holders in their own premises, once they have access granted.
 - processing-tools, for tools developed to process the data. The tools in processing-tool project will be mainly used in the processing environment. Tools cannot be downloaded outside of the Processing environment boundaries.
@@ -234,7 +227,6 @@ In this case, we suggest to provide the oras pull harbor.eucaim.cancerimage.eu/<
 ## 5.5. Software Registration in the catalogue
 Once you have the Dockerfile describing your image, you have to made it available (with all the files needed for building the image) to us in a public or private repository, in Github or any other source code repository provider. And finally create a request in the HelpDesk, under the category "Technical Support Team".  We will review the application and eventually come back with suggestions and changes. Once approved, you can proceed with the registration in the catalogue. 
 
-![image](figures/image5-6.webp)
+![Figure 5.6. EUCAIM domain in Biotools (left) and registration of a tool (right).](figures/image5-6.webp)
 
-Figure 5.6. EUCAIM domain in Biotools (left) and registration of a tool (right).
 EUCAIM manages a catalogue of descriptions of the applications and a registry where the binaries of the applications can be deposited. The catalogue is available in the EUCAIM domain of the ELIXIR biotools ([https://bio.tools/t?domain=eucaim](https://bio.tools/t?domain=eucaim)). You should create an account and create a tool under this group. Once you have created an account, you can register your tool in the "Menu" / "Add a tool" option. It is important that you fill in as much information as possible. You can use the downloading URLs of the registry described in the previous section as the download URLs. The inclusion of the tool in the EUCAIM domain can be requested by inserting the value "eucaim" in the "collections" field of the "Labels" panel. The inclusion in the group has to be validated by the domain manager.
