@@ -218,11 +218,11 @@ In this case, we suggest to provide the `docker pull harbor.eucaim.cancerimage.e
 - The procedure for pulling or pushing non OCI-compliant artifacts (e.g. a zip file) is the following:
 - Retrieve the user and access token through the harbor registry user profile (see figure 5.1)
 - Install ORAS tool ([https://oras.land/docs/installation](https://oras.land/docs/installation)).
-- Login in the registry using the command oras login harbor.eucaim.cancerimage.eu, and provide a username and a token (see figure 5.1).
+- Login in the registry using the command `oras login harbor.eucaim.cancerimage.eu`, and provide a username and a token (see figure 5.1).
 - Push an artifact (e.g. a zip file) with the command `oras push harbor.eucaim.cancerimage.eu/<<project>>/<<artifact-name>>:<<tag>> --artifact-type application/zip ./myfile.zip` . The artifact-type option is a descriptive string. Replace <<project>>>, <<artifact-name>> and <<tag>> as described in the previous case.
-- Pull an artifact with the command: oras pull harbor.eucaim.cancerimage.eu/<<project>>/<<artifact-name>>:<<tag>>
+- Pull an artifact with the command: `oras pull harbor.eucaim.cancerimage.eu/<<project>>/<<artifact-name>>:<<tag>>`
 
-In this case, we suggest to provide the oras pull harbor.eucaim.cancerimage.eu/<<project>>/<<artifact-name>>:<<tag>> as the download link.
+In this case, we suggest to provide the `oras pull harbor.eucaim.cancerimage.eu/<<project>>/<<artifact-name>>:<<tag>>` as the download link.
 
 ## 5.5. Software Registration in the catalogue
 Once you have the Dockerfile describing your image, you have to made it available (with all the files needed for building the image) to us in a public or private repository, in Github or any other source code repository provider. And finally create a request in the HelpDesk, under the category "Technical Support Team".  We will review the application and eventually come back with suggestions and changes. Once approved, you can proceed with the registration in the catalogue. 
