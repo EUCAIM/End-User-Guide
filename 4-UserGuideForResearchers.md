@@ -2,7 +2,7 @@
 This guide is designed to help researchers navigate the platform, access data, and understand the procedures in place. The EUCAIM platform facilitates data sharing, reuse, and collaborative research within a governed framework to ensure transparency and compliance.
 
 ## 4.1. Platform access
-The access to the platform is managed through the dashboard component, exposed in the https://dashboard.eucaim.cancerimage.eu/ URL, which can be opened in a browser on your computer or mobile device (tablet or smartphone). You can also access the dashboard through the EUCAIM project main website by clicking on “Visit the new dashboard preview!” available at https://cancerimage.eu/. Figure 4-1 shows a snapshot of the dashboard landing page and the cancerimage.eu main page.
+The access to the platform is managed through the dashboard component, exposed in the https://dashboard.eucaim.cancerimage.eu/ URL, which can be opened in a browser on your computer or mobile device (tablet or smartphone). You can also access the dashboard through the EUCAIM project main website by clicking on “Visit the dashboard” button on [cancerimage.eu](https://cancerimage.eu/). Figure 4-1 shows a snapshot of the dashboard landing page and the cancerimage.eu main page.
 
 ![Figure 4-1. EUCAIM Dashboard, anonymous access (left) and EUCAIM project main webpage (right).](figures/image4-1.avif)
 
