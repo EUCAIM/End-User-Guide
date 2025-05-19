@@ -103,6 +103,38 @@ The operations of creation, access and batch processing to a specific dataset ar
 The information on the access history is available through the UPV reference node dashboard in https://eucaim-node.i3m.upv.es/dataset-service, and can be queried to the REST API using the GET operation on the endpoint [https://eucaim-node.i3m.upv.es/tracer-service/tracer/api/v1/traces?datasetId=dataset-id](https://eucaim-node.i3m.upv.es/tracer-service/tracer/api/v1/traces?datasetId=dataset-id), provided that the user has the proper credentials.
 
 ### 6.2.3. Data Transfer to the HealthRI reference node
+
+Please make sure you fulfill the requisites before continuing with uploading your data to the [Health-RI XNAT](https://xnat.health-ri.nl)
+
+#### 6.2.3.1 Uploading Dicom data
+
+##### Data requirements
+Please make sure the DICOM files are de-identified and contain properly formatted headers.
+
+At a minimum, the following headers need to be present:
+| Attribute                            | DICOM Tag   | Requirement | Example  |
+| ------------------------------------ | ----------- | ----------- | -------- |
+| Patient ID                           | (0010,0020) | Mandatory   | X123456  |
+| Image modality                       | (0008,0060) | Mandatory   | CT       |
+| Image body part                      | (0018,0015) | Mandatory   | Chest    |
+| Image manufacturer                   | (0008,0070) | Mandatory   | Siemens  |
+| Data of image acquisition (YYYYMMDD) | (0008,0022) | Mandatory   | 20241230 |
+
+For uploading dicom data using CTP is recommended. Please use [🔗 this guide](https://gitlab.com/radiology/infrastructure/data-curation-tools/ctp-standalone/-/raw/main/Manuals/EUCAIM%20XNAT%20Central%20Repository.pdf) to upload your data.
+
+#### 6.2.3.2 Uploading Nifti data
+
+##### Data requirements
+When uploading nifti's you need to supply required dicom headers in json format. Follow the [🔗 DICOM specifications for formatting this json](https://dicom.nema.org/medical/dicom/current/output/chtml/part18/chapter_F.html) file. [🔗 This is an example](https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_F.4.html) on how such a file should be formatted.
+
+##### Uploading
+
+Here is an example how to upload nifti files: https://gitlab.com/radiology/infrastructure/xnatpy/-/blob/master/examples/upload_nifti.py
+
+Here is an example how to upload the dicom json files: https://gitlab.com/radiology/infrastructure/xnatpy/-/snippets/4831410
+
+
+
 See detailed instructions on how to use the Clinical Trial Processor (CTP) in this [guide](https://gitlab.com/radiology/infrastructure/data-curation-tools/ctp-standalone/-/blob/a195e33ff9711da8e5abefc8285c443b40b8502a/Manuals/EUCAIM%20XNAT%20Central%20Repository.pdf).
 
 ## 6.3. Contribution through a Federated Node
