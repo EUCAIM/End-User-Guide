@@ -136,7 +136,94 @@ The registration of the dataset on the public catalogue. has been described in s
 
 The Tier 2 compliance implies that the data that is hosted at the federated node can be searched according to the searching variables defined in the CDM. At this point it is assumed that:
 - The Data Holder has set up a repository with the imaging and clinical data.
-- The repository has a searching endpoint that can be accessed to retrieve the number of subjects and studies that fulfil a specific filtering criteria.
+- The repository has a searching endpoint that can be accessed to retrieve the number of subjects and studies that fulfil a specific filtering criteria, preferably in FHIR.
+
+The steps to perform are:
+1. *Metadata mapping*. A mapping of the searchable items described in Tables 14 and 15 in D5.6 to the local variables should be defined. If the data is already transformed to the EUCAIM CDM (see Section 5.2), then this step is not required.
+2. *Mediator component development*. If you are not exposing the data following the FHIR Standard, you should develop your own component to adapt the queries. An example of such component can be found in D5.6 “ Section 5.2.1 Dataset in a Federated Node, subsection “Guidelines for creating a mapping component”.
+3. *Request registration in the explorer*. Once the components are deployed, a ticket in the helpdesk, under the category “federated search” should be created with the request “register a new federated search provider”. 
+4. *Mediator component deployment*. The deployment of a mediator component can be done as a Docker container. Section 5.2.1 Dataset in a Federated Node of D5.6 shows an example. Detailed instructions are provided next.
+
+### 6.3.2.1. Node Registration and Deployment
+After submitting and having your registration request accepted, perform the following steps:
+#### A. Generate and Submit a CSR
+Create a Certificate Signing Request (CSR) with the Common Name (CN) set to your provider’s ID plus the domain broker.eucaim.cancerimage.eu: 
+```
+openssl req -key $REPO_ID.priv.pem -new \
+            -subj "/CN=$REPO_ID.broker.eucaim.cancerimage.eu/C=X/L=Y" \
+            -out $REPO_ID.csr
+```
+Where:
+- `$PROVIDER_ID.priv.pem`: Name of the private key file to be generated.
+- `CN`: Should be `{your_id}.broker.eucaim.cancerimage.eu`. The value of `{your_id}` should have been provided as a reply to the registration.
+- `C=`, `L=`: Country and locality codes as needed.
+Then, submit the resulting `.csr` file to the central node managers through the helpdesk, as a reply to the opened ticket.
+
+#### B. Receive the Root CA
+The central node manager will sign your CSR and return your certificate and provide you with the Root CA certificate file (e.g., root.crt.pem). Save the Root CA file in a secure location (it will be referenced later on).
+
+#### C. Deploy Beam Proxy and Focus 
+Use the Docker image samply/beam-proxy:main for the Beam and configure the following environment variables (those which are in red are compulsory):
+```
+version: '3.8'
+services:
+  beam-proxy:
+    image: samply/beam-proxy:main
+    environment:
+      - BROKER_URL=https://broker.eucaim.cancerimage.eu
+      - PROXY_ID=${PROVIDER_ID}.broker.eucaim.cancerimage.eu
+      - APP_FOCUS_KEY=${APP1_KEY}     # Randomly generated focus key
+      - PRIVKEY_FILE=/run/secrets/proxy.pem     # Your proxy private key
+      - BIND_ADDR=0.0.0.0:8081        # Listening address
+      - http_proxy=${HTTP_PROXY}      # If needed
+      - https_proxy=${HTTPS_PROXY}    # If needed
+    secrets:
+      - proxy.pem                     # Proxy private key
+      - root.crt.pem                  # Root CA certificate
+    networks:
+      - beam-network
+
+secrets:
+  proxy.pem:
+    file: ./secrets/proxy.pem
+  root.crt.pem:
+    file: ./secrets/root.crt.pem
+
+networks:
+  beam-network:
+    driver: bridge
+```
+
+This proxy will handle communications between your node and the central Beam Broker. 
+You may include the Focus service in the same `docker-compose.yml`. Focus will dispatch and translate incoming Beam tasks to your local endpoints and return results via the Beam Proxy.
+
+```
+  focus:
+    image: samply/focus:latest
+    environment:
+      - BEAM_PROXY_URL=http://beam-proxy:8081      # URL of BEAM Proxy 
+      - ENDPOINT_URL=http://mediator-service:8089/ # Your local Mediator endpoint
+      - API_KEY=${APP1_KEY}                        # Same key as APP_FOCUS_KEY
+      - BEAM_APP_ID_LONG=app1.broker.eucaim.cancerimage.eu  
+# e.g., focus.{provider}.broker.eucaim.cancerimage.eu
+    depends_on:
+      - beam-proxy
+      - mediator-service
+    networks:
+      - beam-network
+```
+
+The variables required are: 
+- `BEAM_PROXY_URL`
+- `ENDPOINT_URL`
+- `API_KEY`
+- `BEAM_APP_ID_LONG`
+
+For additional optional configuration, see the Focus README: `https://github.com/samply/focus?tab=readme-ov-file#optional-variables`
+
+#### C. Final Checks and Deployment
+Once you have your metadata mapping, your Mediator component operational, the Root CA certificate included, your CSR signed, and your Docker Compose correctly configured with BEAM Proxy and Focus, proceed to deploy everything and verify that your node has been correctly added to the Explorer.
+
 
 ## 6.3.3. Tier 3 compliance
 
