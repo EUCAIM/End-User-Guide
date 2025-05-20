@@ -48,13 +48,9 @@ See live updates of the upload process progress.
 
 This process is shown below in figure 6.2 and 6.3:
 
-![image](figures/image6-2.png)
+![Figure 6.2. Selecting a project, a subject and a timepoint](figures/image6-2.png)
 
-Figure 6.2. Selecting a project, a subject and a timepoint  
-
-![image](figures/image6-3.png)
-
-Figure 6.3. Adding imaging data in the browser, anonymizing
+![Figure 6.3. Adding imaging data in the browser, anonymizing](figures/image6-3.png)
 
 Additionally, the QP-Insights application includes a set of DICOMWeb standards-based functionalities for working with DICOM files via API. Specifically, it provides the STOW-RS API for uploading DICOM images. In this way, users can choose to upload images via the web interface or via the API, depending on their needs and permissions. An example of a STOW-RS API call is shown in the section 5.1.2 in the annexes..
 
@@ -63,15 +59,11 @@ QP-Insights also supports the ingestion of clinical data.
 
 By using the user interface, an eCRF(electronic Case Report Form) template defined in an excel file can be uploaded to the platform and assigned to a single project, as shown in the figure 6.4 and 6.5 :  
 
-![image](figures/image6-4.png)
-
-Figure 6.4. Adding an eCRF template to a project in QP-Insights
+![Figure 6.4. Adding an eCRF template to a project in QP-Insights](figures/image6-4.png)
 
 Once the template is uploaded, the variables specified by the eCRF template can be filled in for each subject of the project. By clicking in the icon of the eCRF file, an editable form corresponding to the eCRF template can be edited as shown in the following pictures. The status of the eCRF (incomplete, completed or validated) is shown by different colours of the file icon.
 
-![image](figures/image6-5.png)
-
-Figure 6.5: Filling in the eCRF for a subject
+![Figure 6.5: Filling in the eCRF for a subject](figures/image6-5.png)
 
 In addition, QP-Insights supports the ingestion of clinical data through a set of APIs that allows verified users to interact directly with it without the need for a user interface. Uploading and editing eCRF (electronic Case Report Form) is possible via API.
 
@@ -80,9 +72,7 @@ This API transaction is described in the annexes (5.1.2. Calls related to UAH4).
 #### 6.2.2.3. Creating the dataset:
 QP-Insights also implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the dataset name, description and purpose, along with the dataset type and method as shown in Figure 6.6. The dataset creation will later be reflected in the dataset explorer. This is performed through the call to a POST operation to the dataset service API [https://eucaim-node.i3m.upv.es/dataset-service/api/datasets](https://eucaim-node.i3m.upv.es/dataset-service/api/datasets), with all the details of the datasets.
 
-![image](figures/image6-6.png)
-
-Figure 6.6. Creation of a dataset
+![Figure 6.6. Creation of a dataset](figures/image6-6.png)
 
 #### 6.2.2.4. Upload metadata
 The description of this user action refers to the release of a dataset as a discoverable one. This implies two steps:
@@ -91,9 +81,7 @@ The description of this user action refers to the release of a dataset as a disc
 
 2. Make the dataset discoverable through the Federated Search (required for Tier 2 and above). If the dataset is uploaded to the reference node, it can be made discoverable by setting the status of the dataset as “published”, which triggers the publication of the metadata in Zenodo. This step is performed through the GUI in [https://eucaim-node.i3m.upv.es/dataset-service](https://eucaim-node.i3m.upv.es/dataset-service), selecting the dataset created. Figure 6.7 shows this GUI. Once the information is properly filled-in, the dataset can be set as released using the "Actions" button. 
 
-![image](figures/image6-7.avif)
-
-Figure 6.7. Dataset metadata update.
+![Figure 6.7. Dataset metadata update.](figures/image6-7.avif)
 
 3. Verify that the dataset is correct. You can create a Virtual Environment following the instructions given in Section 4. Once you have explored and verified that the information is correct, you can request the publication of the dataset's metadata through the helpdesk, by creating a token with the name "Request the publication of a dataset" and indicating its identifier.  The technical committee will verify that the data is correct and will publish the dataset, assigning a DOI and an entry in the EUCAIM UPV Reference node community in Zenodo (https://zenodo.org/communities/eucaim-upv-node-datasets/records?q=&l=list&p=1&s=10&sort=newest).
 
@@ -111,7 +99,17 @@ The setup of a federated node requires the provision of storage and computing re
 - Tier 2: Set up a mediator component to adapt the API of the federated search explorer to the local search API, matching the format defined in the hyperontology for the searching terms.
 - Tier 3: Set up a processing environment and a materialisator for the federated processing.
 
-The recommendations for the hardware of the federated node are the following:
+The recommendations for the hardware of the federated node at tier 2 are the following:
+
+| Hardware | Minimum  |
+| :------- | :------- |
+| *CPU*    | 4 Cores /8 Threads |
+| *RAM*    | 32 GB |
+| *Operating System Drive* | 160+ GB SSD |
+| *Data Storage* | 1x (Dataset size) Drives |
+
+
+The recommendations for the hardware of the federated node at tier 3 are the following:
 | Hardware | Option 1 | Option 2 | Description |
 | :------- | :------- | :------- | :---------- |
 | *CPU* | Minimum Cores: 16 >=1.8GHZ | Minimum Cores: 12 >=3.0Ghz| <ul><li>If a GPU is not present, a server-grade, high core-count CPU is necessary for the Second Prototype. </li><li>If not comparable by cores, the ideal thread count is 24+.</li></ul>|
