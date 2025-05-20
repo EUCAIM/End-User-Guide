@@ -264,9 +264,9 @@ By default, holding the left mouse button can be used to adjust the window width
 
 ## 4.9.2 Using python to download data
 
-It is also possible to access data through the API this can be done using the python package [xnatpy](https://xnat.readthedocs.io/en/stable/). It can be used to loop over subjects/studies and to download data.
+It is also possible to access data through the API this can be done using the python package [xnatpy](https://xnat.readthedocs.io/en/stable/). It can, among other thing, be used to loop over subjects/studies and to download data.
 
-To download the entire project for e.g. processing, a helper tool was developed, it is called [datmat](https://datmat.readthedocs.io/stable/).
+To download the entire projects for e.g. processing, a helper tool was developed, which is called [datmat](https://datmat.readthedocs.io/stable/).
 
 
 ### 4.9.2.1 Getting started
