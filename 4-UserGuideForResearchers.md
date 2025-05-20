@@ -230,6 +230,8 @@ The Euro-BioImaging Medical Imaging Repository (a reference node in EUCAIM) focu
 
 Before the access is granted, the responsible person of the dataset has to update the profile in the XNAT to give access to the specific dataset. They can also contact the Health-RI helpdesk for further assistance.
 
+## 4.9.1 Accessing data through the web-interface
+
 You will need to be logged in to the Euro-BioImaging XNAT to access most image datasets. If you are not logged in or do not have access granted to your account, figure 4-31 shows it up, indicating there is no access to the project data:
 
 ![Figure 4-31: Access denial.](figures/image4-31.avif)
@@ -259,6 +261,95 @@ XNAT also has a built-in DICOM viewer, i.e. the OHIF viewer by the Open Health I
 By default, holding the left mouse button can be used to adjust the window width and level. The scroll wheel can be used to scroll through slices, holding the right mouse button is for zooming in/out. At the menu bar you can select multiple controls, for example to change the left mouse button to “stack scroll” instead of “window” akin to a radiological PACS. In the left column, multiple series are shown of the same experiment (if available).
 
 ![Figure 4-37: visualisation of images in the EuroBioImaging reference node.](figures/image4-38.avif)
+
+## 4.9.2 Using python to download data
+
+It is also possible to access data through the API this can be done using the python package [xnatpy](https://xnat.readthedocs.io/en/stable/). It can be used to loop over subjects/studies and to download data.
+
+To download the entire project for e.g. processing, a helper tool was developed, it is called [datmat](https://datmat.readthedocs.io/stable/).
+
+
+### 4.9.2.1 Getting started
+
+Install `datmat` from PyPI:
+```commandline
+pip install datmat
+```
+
+In `datmat` you can interface with multiple data sources and storage solutions through a plugin system.
+By linking together different plugins you can move data from one place to another.
+A set of plugins is already installed when installing the package, but the program is set up to support development
+of custom plugins. The plugins can be called by using a URL scheme to preface the path or URL to your file. For example,
+by using `file:///home/user/file.txt` you can access the local file `/home/user/file.txt`, or by using
+`xnat+https://xnat.health-ri.nl/projects/sandbox` you can access the XNAT project `sandbox` on `xnat.health-ri.nl` over HTTPS.
+
+See below examples of various use cases.
+
+### 4.9.2.2 Downloading from XNAT into EUCAIM directory structure
+
+Through the use of the `xnat+https://` plugin it is possible to download files from an XNAT instance.
+The `eucaimdir://` plugin will store the files in the destination folder in the following nested folder structure:
+
+```
+/dest_folder/project_name/subject_label/experiment_label/{scan_id}_{scan_type}/file
+```
+
+The path `/dest_folder` needs to be supplied with the starting `/`, so the URL will be `eucaimdir:///dest_folder`.
+
+
+### 4.9.2.3  Download dicoms
+
+```python
+import datmat
+
+datmat.materialize('xnat+https://xnat.health-ri.nl/projects/sandbox',
+                   'eucaimdir:///dest_folder',
+                   tempdir='/temp_directory')
+```
+
+By default only the 'DICOM' resource is downloaded per scan. To download all
+resources a query can be added to the input URL:
+
+### 4.9.2.4 Download NIFTI's
+
+```python
+import datmat
+
+datmat.materialize('xnat+https://xnat.health-ri.nl/projects/sandbox?resources=NIFTI',
+                   'eucaimresdir:///dest_folder',
+                   tempdir='/temp_directory')
+```
+
+### 4.9.2.5 Download all resources
+
+```python
+import datmat
+
+datmat.materialize('xnat+https://xnat.health-ri.nl/projects/sandbox?resources=NIFTI',
+                   'eucaimresdir:///dest_folder',
+                   tempdir='/temp_directory')
+```
+
+By using the `eucaimresdir:///` output URL scheme, a folder will be created for
+each of the resources, like this:
+
+```
+/dest_folder/project_name/subject_label/experiment_label/{scan_id}_{scan_type}/resource_name/files/file
+```
+
+
+### 4.9.2.6 A single subject
+```python
+import datmat
+
+datmat.materialize('xnat+https://xnat.health-ri.nl/search?projects=sandbox&subjects=TEST01&resources=DICOM',
+                   'eucaimdir:///dest_folder',
+                   tempdir='/temp_directory')
+```
+
+The `datmat` package is based on the IOPlugin system of Fastr. See the documentation for the [XNATStorage IOPlugin](https://fastr.readthedocs.io/en/stable/_autogen/fastr.reference.html#xnatstorage) for more information on querying XNAT.
+
+
 
 ## 4.10. Helpdesk
 The EUCAIM helpdesk is a single point of contact to collect and reply to questions, incidents, requests, etc. The software responsible for the EUCAIM helpdesk is Zammad and an independent instance has been provided for the project.
@@ -302,3 +393,4 @@ Every new ticket is assigned to the First Level Support Unit Team. This EUCAIM F
 For every reply you have in each ticket you will get an email from the EUCAIM Helpdesk system, informing you of all new activities related to each ticket. In order to leave the system, click in your initials icon, at the bottom left corner and in the “Sign out” button.
 
 For more information about EUCAIM Helpdesk, please refer to the EUCAIM Helpdesk End-User Guidelines at [https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk](https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk).
+
