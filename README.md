@@ -7,6 +7,8 @@ The opinions stated in this report reflect the opinions of the authors and not t
 
 All intellectual property rights are owned by the consortium of EUCAIM under terms stated in their Consortium Agreement and are protected by the applicable laws. Reproduction is not authorised without prior written agreement. The commercial use of any information contained in this document may require a licence from the owner of the information.
 
+Cancer Image Europe is a research infrastructure established by the EUCAIM project, a flagship action of the European Cancer Imaging Initiative. This project is co-funded by the European Union under Grant Agreement 101100633.
+
 # 1\. Introduction
 
 EUCAIM is a federated digital infrastructure for the management of medical images in the scope of oncology. EUCAIM aims at addressing the challenges of the European Cancer Imaging Initiative. There are imaging datasets for different types of cancer, but they are widely distributed and they are not easily accessible. EUCAIM aims at addressing the following challenges:
