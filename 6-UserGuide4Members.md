@@ -48,13 +48,9 @@ See live updates of the upload process progress.
 
 This process is shown below in figure 6.2 and 6.3:
 
-![image](figures/image6-2.png)
+![Figure 6.2. Selecting a project, a subject and a timepoint](figures/image6-2.png)
 
-Figure 6.2. Selecting a project, a subject and a timepoint  
-
-![image](figures/image6-3.png)
-
-Figure 6.3. Adding imaging data in the browser, anonymizing
+![Figure 6.3. Adding imaging data in the browser, anonymizing](figures/image6-3.png)
 
 Additionally, the QP-Insights application includes a set of DICOMWeb standards-based functionalities for working with DICOM files via API. Specifically, it provides the STOW-RS API for uploading DICOM images. In this way, users can choose to upload images via the web interface or via the API, depending on their needs and permissions. An example of a STOW-RS API call is shown in the section 5.1.2 in the annexes..
 
@@ -63,15 +59,11 @@ QP-Insights also supports the ingestion of clinical data.
 
 By using the user interface, an eCRF(electronic Case Report Form) template defined in an excel file can be uploaded to the platform and assigned to a single project, as shown in the figure 6.4 and 6.5 :  
 
-![image](figures/image6-4.png)
-
-Figure 6.4. Adding an eCRF template to a project in QP-Insights
+![Figure 6.4. Adding an eCRF template to a project in QP-Insights](figures/image6-4.png)
 
 Once the template is uploaded, the variables specified by the eCRF template can be filled in for each subject of the project. By clicking in the icon of the eCRF file, an editable form corresponding to the eCRF template can be edited as shown in the following pictures. The status of the eCRF (incomplete, completed or validated) is shown by different colours of the file icon.
 
-![image](figures/image6-5.png)
-
-Figure 6.5: Filling in the eCRF for a subject
+![Figure 6.5: Filling in the eCRF for a subject](figures/image6-5.png)
 
 In addition, QP-Insights supports the ingestion of clinical data through a set of APIs that allows verified users to interact directly with it without the need for a user interface. Uploading and editing eCRF (electronic Case Report Form) is possible via API.
 
@@ -80,9 +72,7 @@ This API transaction is described in the annexes (5.1.2. Calls related to UAH4).
 #### 6.2.2.3. Creating the dataset:
 QP-Insights also implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the dataset name, description and purpose, along with the dataset type and method as shown in Figure 6.6. The dataset creation will later be reflected in the dataset explorer. This is performed through the call to a POST operation to the dataset service API [https://eucaim-node.i3m.upv.es/dataset-service/api/datasets](https://eucaim-node.i3m.upv.es/dataset-service/api/datasets), with all the details of the datasets.
 
-![image](figures/image6-6.png)
-
-Figure 6.6. Creation of a dataset
+![Figure 6.6. Creation of a dataset](figures/image6-6.png)
 
 #### 6.2.2.4. Upload metadata
 The description of this user action refers to the release of a dataset as a discoverable one. This implies two steps:
@@ -91,9 +81,7 @@ The description of this user action refers to the release of a dataset as a disc
 
 2. Make the dataset discoverable through the Federated Search (required for Tier 2 and above). If the dataset is uploaded to the reference node, it can be made discoverable by setting the status of the dataset as “published”, which triggers the publication of the metadata in Zenodo. This step is performed through the GUI in [https://eucaim-node.i3m.upv.es/dataset-service](https://eucaim-node.i3m.upv.es/dataset-service), selecting the dataset created. Figure 6.7 shows this GUI. Once the information is properly filled-in, the dataset can be set as released using the "Actions" button. 
 
-![image](figures/image6-7.avif)
-
-Figure 6.7. Dataset metadata update.
+![Figure 6.7. Dataset metadata update.](figures/image6-7.avif)
 
 3. Verify that the dataset is correct. You can create a Virtual Environment following the instructions given in Section 4. Once you have explored and verified that the information is correct, you can request the publication of the dataset's metadata through the helpdesk, by creating a token with the name "Request the publication of a dataset" and indicating its identifier.  The technical committee will verify that the data is correct and will publish the dataset, assigning a DOI and an entry in the EUCAIM UPV Reference node community in Zenodo (https://zenodo.org/communities/eucaim-upv-node-datasets/records?q=&l=list&p=1&s=10&sort=newest).
 
@@ -143,7 +131,17 @@ The setup of a federated node requires the provision of storage and computing re
 - Tier 2: Set up a mediator component to adapt the API of the federated search explorer to the local search API, matching the format defined in the hyperontology for the searching terms.
 - Tier 3: Set up a processing environment and a materialisator for the federated processing.
 
-The recommendations for the hardware of the federated node are the following:
+The recommendations for the hardware of the federated node at tier 2 are the following:
+
+| Hardware | Minimum  |
+| :------- | :------- |
+| *CPU*    | 4 Cores /8 Threads |
+| *RAM*    | 32 GB |
+| *Operating System Drive* | 160+ GB SSD |
+| *Data Storage* | 1x (Dataset size) Drives |
+
+
+The recommendations for the hardware of the federated node at tier 3 are the following:
 | Hardware | Option 1 | Option 2 | Description |
 | :------- | :------- | :------- | :---------- |
 | *CPU* | Minimum Cores: 16 >=1.8GHZ | Minimum Cores: 12 >=3.0Ghz| <ul><li>If a GPU is not present, a server-grade, high core-count CPU is necessary for the Second Prototype. </li><li>If not comparable by cores, the ideal thread count is 24+.</li></ul>|
@@ -168,7 +166,94 @@ The registration of the dataset on the public catalogue. has been described in s
 
 The Tier 2 compliance implies that the data that is hosted at the federated node can be searched according to the searching variables defined in the CDM. At this point it is assumed that:
 - The Data Holder has set up a repository with the imaging and clinical data.
-- The repository has a searching endpoint that can be accessed to retrieve the number of subjects and studies that fulfil a specific filtering criteria.
+- The repository has a searching endpoint that can be accessed to retrieve the number of subjects and studies that fulfil a specific filtering criteria, preferably in FHIR.
+
+The steps to perform are:
+1. *Metadata mapping*. A mapping of the searchable items described in Tables 14 and 15 in D5.6 to the local variables should be defined. If the data is already transformed to the EUCAIM CDM (see Section 5.2), then this step is not required.
+2. *Mediator component development*. If you are not exposing the data following the FHIR Standard, you should develop your own component to adapt the queries. An example of such component can be found in D5.6 “ Section 5.2.1 Dataset in a Federated Node, subsection “Guidelines for creating a mapping component”.
+3. *Request registration in the explorer*. Once the components are deployed, a ticket in the helpdesk, under the category “federated search” should be created with the request “register a new federated search provider”. 
+4. *Mediator component deployment*. The deployment of a mediator component can be done as a Docker container. Section 5.2.1 Dataset in a Federated Node of D5.6 shows an example. Detailed instructions are provided next.
+
+### 6.3.2.1. Node Registration and Deployment
+After submitting and having your registration request accepted, perform the following steps:
+#### A. Generate and Submit a CSR
+Create a Certificate Signing Request (CSR) with the Common Name (CN) set to your provider’s ID plus the domain broker.eucaim.cancerimage.eu: 
+```
+openssl req -key $REPO_ID.priv.pem -new \
+            -subj "/CN=$REPO_ID.broker.eucaim.cancerimage.eu/C=X/L=Y" \
+            -out $REPO_ID.csr
+```
+Where:
+- `$PROVIDER_ID.priv.pem`: Name of the private key file to be generated.
+- `CN`: Should be `{your_id}.broker.eucaim.cancerimage.eu`. The value of `{your_id}` should have been provided as a reply to the registration.
+- `C=`, `L=`: Country and locality codes as needed.
+Then, submit the resulting `.csr` file to the central node managers through the helpdesk, as a reply to the opened ticket.
+
+#### B. Receive the Root CA
+The central node manager will sign your CSR and return your certificate and provide you with the Root CA certificate file (e.g., root.crt.pem). Save the Root CA file in a secure location (it will be referenced later on).
+
+#### C. Deploy Beam Proxy and Focus 
+Use the Docker image samply/beam-proxy:main for the Beam and configure the following environment variables (those which are in red are compulsory):
+```
+version: '3.8'
+services:
+  beam-proxy:
+    image: samply/beam-proxy:main
+    environment:
+      - BROKER_URL=https://broker.eucaim.cancerimage.eu
+      - PROXY_ID=${PROVIDER_ID}.broker.eucaim.cancerimage.eu
+      - APP_FOCUS_KEY=${APP1_KEY}     # Randomly generated focus key
+      - PRIVKEY_FILE=/run/secrets/proxy.pem     # Your proxy private key
+      - BIND_ADDR=0.0.0.0:8081        # Listening address
+      - http_proxy=${HTTP_PROXY}      # If needed
+      - https_proxy=${HTTPS_PROXY}    # If needed
+    secrets:
+      - proxy.pem                     # Proxy private key
+      - root.crt.pem                  # Root CA certificate
+    networks:
+      - beam-network
+
+secrets:
+  proxy.pem:
+    file: ./secrets/proxy.pem
+  root.crt.pem:
+    file: ./secrets/root.crt.pem
+
+networks:
+  beam-network:
+    driver: bridge
+```
+
+This proxy will handle communications between your node and the central Beam Broker. 
+You may include the Focus service in the same `docker-compose.yml`. Focus will dispatch and translate incoming Beam tasks to your local endpoints and return results via the Beam Proxy.
+
+```
+  focus:
+    image: samply/focus:latest
+    environment:
+      - BEAM_PROXY_URL=http://beam-proxy:8081      # URL of BEAM Proxy 
+      - ENDPOINT_URL=http://mediator-service:8089/ # Your local Mediator endpoint
+      - API_KEY=${APP1_KEY}                        # Same key as APP_FOCUS_KEY
+      - BEAM_APP_ID_LONG=app1.broker.eucaim.cancerimage.eu  
+# e.g., focus.{provider}.broker.eucaim.cancerimage.eu
+    depends_on:
+      - beam-proxy
+      - mediator-service
+    networks:
+      - beam-network
+```
+
+The variables required are: 
+- `BEAM_PROXY_URL`
+- `ENDPOINT_URL`
+- `API_KEY`
+- `BEAM_APP_ID_LONG`
+
+For additional optional configuration, see the Focus README: `https://github.com/samply/focus?tab=readme-ov-file#optional-variables`
+
+#### C. Final Checks and Deployment
+Once you have your metadata mapping, your Mediator component operational, the Root CA certificate included, your CSR signed, and your Docker Compose correctly configured with BEAM Proxy and Focus, proceed to deploy everything and verify that your node has been correctly added to the Explorer.
+
 
 ## 6.3.3. Tier 3 compliance
 
