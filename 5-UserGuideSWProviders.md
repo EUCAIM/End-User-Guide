@@ -15,7 +15,7 @@ Finally, at the end of the page, you will have the opportunity to start the proc
 Once you have expressed the interest to become a software provider, you will be invited to submit an application that will be reviewed by the access committee. Additional information about the requirements of applications running in the EUCAIM platform can be found in https://github.com/chaimeleon-eu/workstation-images. The Technical Team will contact you, by means of the Helpdesk, to assist you in the preparation and validation of your tools.
 
 # 5.2. Software Integration
-The normal procedure to integrate an application is creating a Docker image containing the main binary or script file and all the dependencies/libraries required to execute it. But there are some conditions that the image must be considered concerning security and data access.
+The normal procedure to integrate an application is creating a Docker image containing the main binary or script file and all the dependencies/libraries required to execute it. But there are some conditions that the image must be considered concerning security and data access. Detailed instructions on software packaging are provided in the [Software Packaging Guide](https://drive.google.com/file/d/1BIwfPVU4rWKRjye-r86304XGa9acztVk/view?usp=sharing).
 
 These instructions do not apply to applications that are expected to be downloaded by the data holders to prepare the data, and refer only to those applications to run inside the EUCAIM platform.
 
