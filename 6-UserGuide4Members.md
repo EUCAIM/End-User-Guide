@@ -2,7 +2,7 @@
 
 This guide is designed to help users wishing to become a new member to navigate the platform and understand the procedures in place. The EUCAIM platform facilitates data sharing, reuse, and collaborative research within a governed framework to ensure transparency and compliance. If you keep browsing the dashboard, you will find different _‘Become a’_ sections corresponding to the four main roles that can be part of EUCAIM.
 
-![Figure 5-1. EUCAIM Dashboard, user roles information](figures/fig0.avif)
+![Figure 6-1. EUCAIM Dashboard, user roles information](figures/fig0.avif)
 
 EUCAIM defines two ways of participating as data holders, each with unique capabilities and contributions in both research and clinical environments:
 
@@ -33,46 +33,57 @@ This User Action deals with the uploading of the data in a Reference Node and th
 
 EUCAIM has set up two reference nodes to host data transferred from the data holders. These two reference nodes are complementary and use compatible but different technologies.
 
-- The UPV node [https://eucaim-node.i3m.upv.es/](https://eucaim-node.i3m.upv.es/) uses an open-source platform developed in the CHAIMELEON project [https://github.com/chaimeleon-eu](https://github.com/chaimeleon-eu) for providing a fully integrated Data Lake, a Registry and a Virtual Research Environment powered by 10 dedicated physical nodes, with a total of 960 cores, 7,5TB of RAM and 25 NVIDIA GPUs with 24GB RAM each. The data ingestion component and the DICOM viewer of this node is QUIBIM QP-Insights platform, which supports the upload of DICOM studies via a DICOMWeb API (DICOMweb) and a REST API to upload the clinical data in JSON files.
+- The UPV node [https://eucaim-node.i3m.upv.es/](https://eucaim-node.i3m.upv.es/) uses an open-source platform developed in the CHAIMELEON project [https://github.com/chaimeleon-eu](https://github.com/chaimeleon-eu) for providing a fully integrated Data Lake, a Registry and a Virtual Research Environment powered by 10 dedicated physical nodes, with a total of 960 cores, 7,5TB of RAM and 25 NVIDIA GPUs with 24GB RAM each. QP-Insights is an imaging data storage and management platform with an integrated DICOM Viewer which supports the upload of DICOM studies and associated clinical data in CSV or XLS formats.
 - The Euro-BioImaging Medical Imaging Repository ([https://xnat.health-ri.nl](https://xnat.health-ri.nl)) is a platform operated by Health-RI ([https://www.health-ri.nl/en/services/xnat](https://www.health-ri.nl/en/services/xnat)) for storing and managing imaging provided as a service through the Euro-BioImaging ERIC. XNAT is an extensible open-source imaging platform that simplifies common tasks in imaging data management. The Imaging Data should be stored in DICOM format if that is available, but can be also stored in other formats like NIfTI, and derived data and clinical data can also be stored in appropriate file formats as described in the Data Management Plan [REF].
 
 Details on the features supported by each Reference node are provided in Annex III.
 
-### 6.2.2. Data Transfer to the UPV reference node
-#### 6.2.2.1 Uploading DICOM images through QP-Insights:
-QP-Insights allows data ingestion via a manual upload through a visual interface in which the user is able to:
+### 6.2.2. Data Transfer to the UPV reference node using QP-Insights
+QP-Insigths supports the ingestion of DICOM Images and associated clinical data to the UPV reference node using two pathways: 
 
-Set the information related to the data such as the project in which the data has to be included and the subject (patient) and timepoint associated with the data. - Add via drag and drop the files that include the data (either DICOM or zip files). - Perform the upload of the data. The application previously triggers an anonymization process over it before any of the data leaves the user’s browser.
+-	**Batch upload via QP-Insights Uploader App**. Recommended for retrospective or large-scale repositories as this method enables the simultaneous transfer of multiple studies.    
+-	**Manual upload via QP-Insights Web Interface**. This is a case-by-case upload, ideal for observational studies where individual case handling is prefered. 
 
-See live updates of the upload process progress.
+**Important**: Before uploading any data, an administrator must **manually create a new project and link it to the EUCAIM profiles who will upload data**. To request this open a ticket in https://help.cancerimage.eu, select the “Reference nodes” group (or “Technical support team” if unavailable) and submit  a request with the title: “Create a data ingestion imaging biobank” providing a name for the biobank, the username in EUCAIM who will manage it and an URL if available. You will receive a response shortly after submission.. 
 
-This process is shown below in figure 6.2 and 6.3:
+To log in you will need your UPV reference node credentials. If you previously accessed the platform using LS-AAI, you may need to manually set up a password. You can do it under User Account -> Account security -> Signing in.
 
-![Figure 6.2. Selecting a project, a subject and a timepoint](figures/image6-2.png)
+#### 6.2.2.1 Batch upload via QP-Insights Uploader (Desktop App):
+The [QP-Insights Uploader](https://bio.tools/qp-insights_uploader) can be downloaded from the EUCAIM [harbor registry](https://harbor.eucaim.cancerimage.eu/harbor/projects/3/repositories/qp_insights_uploader/artifacts-tab).  Instructions on how to download softwares can be found in Section 5.4. 
 
-![Figure 6.3. Adding imaging data in the browser, anonymizing](figures/image6-3.png)
 
-Additionally, the QP-Insights application includes a set of DICOMWeb standards-based functionalities for working with DICOM files via API. Specifically, it provides the STOW-RS API for uploading DICOM images. In this way, users can choose to upload images via the web interface or via the API, depending on their needs and permissions. An example of a STOW-RS API call is shown in the section 5.1.2 in the annexes..
+![Figure 6.2. (Left) Log in using your EUCAIM reference node credentials. (Right) Select the appropriate project and timepoint for uploading your data in the drop-down list. Timepoints are defined when the project as created. ](figures/image6-2.tiff)
 
-#### 6.2.2.2. Uploading clinical data through QP-Insights:
-QP-Insights also supports the ingestion of clinical data.
+![Figure 6.3. (Left) Select the folder containing the data and choose the patients, studies and/or series you want to upload. Clinical data should be placed in the same folder in either .xls or .csv format. The first column must be labeled patient_id and should match the DICOM Patient ID tag (0010, 0020).  (Right) The status of the upload is indicated during the upload.](figures/image6-3.tiff)
 
-By using the user interface, an eCRF(electronic Case Report Form) template defined in an excel file can be uploaded to the platform and assigned to a single project, as shown in the figure 6.4 and 6.5 :  
+![Figure 6.4.  (Left) Once uploaded, the exams can be accessed through the QP-Insights platform at: https://qpinsights.eucaim-node.i3m.upv.es/cases/subjects. (Right) And visualized using the integrated DICOM Viewer.  ](figures/image6-4.tiff)
 
-![Figure 6.4. Adding an eCRF template to a project in QP-Insights](figures/image6-4.png)
 
-Once the template is uploaded, the variables specified by the eCRF template can be filled in for each subject of the project. By clicking in the icon of the eCRF file, an editable form corresponding to the eCRF template can be edited as shown in the following pictures. The status of the eCRF (incomplete, completed or validated) is shown by different colours of the file icon.
+#### 6.2.2.2 Case-by-case upload via QP-Insights Web Interface:
 
-![Figure 6.5: Filling in the eCRF for a subject](figures/image6-5.png)
+For uploading using the web interface (no installation required), access https://qpinsights.eucaim-node.i3m.upv.es/cases. 
 
-In addition, QP-Insights supports the ingestion of clinical data through a set of APIs that allows verified users to interact directly with it without the need for a user interface. Uploading and editing eCRF (electronic Case Report Form) is possible via API.
 
-This API transaction is described in the annexes (5.1.2. Calls related to UAH4).
+
+![Figure 6.5.  (Left) To import a new imaging exam, click on the icon “Import exam” in the upper right corner of the workspace. ](figures/image6-5.tiff)
+
+
+![Figure 6.6.  (Left) Select the project in the drop-down list in which you want to upload the exam.  (Right) Select the subject in the drop-down list in case it has been already created. In case the subject has not been created, user can type the desired name and press the button to the right of the search engine that will be enabled if there is no match. (Bottom) Select the timepoint in the drop-down list in which you want to upload the exam. ](figures/image6-6.tiff)
+
+![Figure 6.7. (Left) Select the imaging exam to be uploaded by clicking on the upload box and searching your DICOM files from a directory or by dragging and dropping the imaging exam inside the box. (Right) The window will show a list with the exams successfully added. All added series will be automatically selected to continue the process. In case the user does not want to upload some of the exams, simply untick the corresponding boxes in the “Included” column.  ](figures/image6-7.tiff)
+
+![Figure 6.8. (Left) See live updates of the upload process progress. (Right)  Once the uploading process is finished, a summary of the exam import process will be displayed. Click on “Go to exams” to exit this window and proceed to “Cases” view. ](figures/image6-8.tiff)
+
+![Figure 6.9.  (Left) The eCRF of a subject can be manually completed by the user clicking on the file icon on the cases view of QP Insights. A eCRF template for the desired project must be previously uploaded.  (Right) Example of an eCRF, to be completed manually by user. ](figures/image6-9.tiff)
+
+
+Additionally, the QP-Insights application includes a set of DICOMWeb standards-based functionalities for working with DICOM files via API.
+
 
 #### 6.2.2.3. Creating the dataset:
-QP-Insights also implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the dataset name, description and purpose, along with the dataset type and method as shown in Figure 6.6. The dataset creation will later be reflected in the dataset explorer. This is performed through the call to a POST operation to the dataset service API [https://eucaim-node.i3m.upv.es/dataset-service/api/datasets](https://eucaim-node.i3m.upv.es/dataset-service/api/datasets), with all the details of the datasets.
+Datasets uploaded to UPV reference node won’t be immediately published, it is necessary first to create a dedicated dataset from the data that was uploaded to the platform. QP-Insights implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the dataset name, description and purpose, along with the dataset type and method as shown in Figure 6.6. The dataset creation will later be reflected in the dataset explorer. 
 
-![Figure 6.6. Creation of a dataset](figures/image6-6.png)
+![Figure 6.10. (Left) Manually select the cases that will part of a dataset.  (Right) Complete dataset details and configuration before exporting it.](figures/image6-10.png)
 
 #### 6.2.2.4. Upload metadata
 The description of this user action refers to the release of a dataset as a discoverable one. This implies two steps:
