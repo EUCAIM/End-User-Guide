@@ -52,38 +52,37 @@ To log in you will need your UPV reference node credentials. If you previously a
 The [QP-Insights Uploader](https://bio.tools/qp-insights_uploader) can be downloaded from the EUCAIM [harbor registry](https://harbor.eucaim.cancerimage.eu/harbor/projects/3/repositories/qp_insights_uploader/artifacts-tab).  Instructions on how to download softwares can be found in Section 5.4. 
 
 
-![Figure 6.2. (Left) Log in using your EUCAIM reference node credentials. (Right) Select the appropriate project and timepoint for uploading your data in the drop-down list. Timepoints are defined when the project as created. ](figures/image6-2.avif)
+![Figure 6.1. (Left) Log in using your EUCAIM reference node credentials. (Right) Select the appropriate project and timepoint for uploading your data in the drop-down list. Timepoints are defined when the project is created.](figures/image6-1.avif)
 
-![Figure 6.3. (Left) Select the folder containing the data and choose the patients, studies and/or series you want to upload. Clinical data should be placed in the same folder in either .xls or .csv format. The first column must be labeled patient_id and should match the DICOM Patient ID tag (0010, 0020).  (Right) The status of the upload is indicated during the upload.](figures/image6-3.avif)
+![Figure 6.2. (Left) Select the folder containing the data and choose the patients, studies and/or series you want to upload. Clinical data should be placed in the same folder in either .xls or .csv format. The first column must be labeled patient_id and should match the DICOM Patient ID tag (0010, 0020). (Right) The status of the upload is indicated during the upload.](figures/image6-2.avif)
 
-![Figure 6.4.  (Left) Once uploaded, the exams can be accessed through the QP-Insights platform at: https://qpinsights.eucaim-node.i3m.upv.es/cases/subjects. (Right) And visualized using the integrated DICOM Viewer.  ](figures/image6-4.avif)
+![Figure 6.3. (Left) Once uploaded, the exams can be accessed through the QP-Insights platform at: https://qpinsights.eucaim-node.i3m.upv.es/cases/subjects. (Right) And visualized using the integrated DICOM Viewer.](figures/image6-3.avif)
 
 
 #### 6.2.2.2 Case-by-case upload via QP-Insights Web Interface:
+For uploading using the web interface, access https://qpinsights.eucaim-node.i3m.upv.es/cases. 
 
-For uploading using the web interface (no installation required), access https://qpinsights.eucaim-node.i3m.upv.es/cases. 
+WARNING: In order to upload the clinical data using this method a eCRF template for the desired project must be previously uploaded.
+         If your project does not have an eCRF template you will not be able to upload the clinial data by this method, use the batch method instead.
 
+![Figure 6.4. (Left) To import a new imaging exam, click on the icon “Import exam” in the upper right corner of the workspace.](figures/image6-4.avif)
 
+![Figure 6.5. (Left) Select the project in the drop-down list in which you want to upload the exam. (Center) Select the subject in the drop-down list in case it has been already created. In case the subject has not been created, user can type the desired name and press the button to the right of the search engine that will be enabled if there is no match. (Right) Select the timepoint in the drop-down list in which you want to upload the exam.](figures/image6-5.avif)
 
-![Figure 6.5.  (Left) To import a new imaging exam, click on the icon “Import exam” in the upper right corner of the workspace. ](figures/image6-5.avif)
+![Figure 6.6. (Left) Select the imaging exam to be uploaded by clicking on the upload box and searching your DICOM files from a directory or by dragging and dropping the imaging exam inside the box. (Right) The window will show a list with the exams successfully added. All added series will be automatically selected to continue the process. In case the user does not want to upload some of the series, simply untick the corresponding boxes in the “Included” column.](figures/image6-6.avif)
 
+![Figure 6.7. (Left) See live updates of the upload progress. (Right) Once the uploading process is finished, a summary of the exam import process will be displayed. Click on “Go to Cases” to exit this window and proceed to “Cases” view.](figures/image6-7.avif)
 
-![Figure 6.6.  (Left) Select the project in the drop-down list in which you want to upload the exam.  (Right) Select the subject in the drop-down list in case it has been already created. In case the subject has not been created, user can type the desired name and press the button to the right of the search engine that will be enabled if there is no match. (Bottom) Select the timepoint in the drop-down list in which you want to upload the exam. ](figures/image6-6.avif)
-
-![Figure 6.7. (Left) Select the imaging exam to be uploaded by clicking on the upload box and searching your DICOM files from a directory or by dragging and dropping the imaging exam inside the box. (Right) The window will show a list with the exams successfully added. All added series will be automatically selected to continue the process. In case the user does not want to upload some of the exams, simply untick the corresponding boxes in the “Included” column.  ](figures/image6-7.avif)
-
-![Figure 6.8. (Left) See live updates of the upload process progress. (Right)  Once the uploading process is finished, a summary of the exam import process will be displayed. Click on “Go to exams” to exit this window and proceed to “Cases” view. ](figures/image6-8.avif)
-
-![Figure 6.9.  (Left) The eCRF of a subject can be manually completed by the user clicking on the file icon on the cases view of QP Insights. A eCRF template for the desired project must be previously uploaded.  (Right) Example of an eCRF, to be completed manually by user. ](figures/image6-9.avif)
+![Figure 6.8. (Left) The eCRF of a subject can be manually completed by the user clicking on the file icon on the cases view of QP Insights. A eCRF template for the desired project must be previously uploaded. (Right) Example of an eCRF, to be completed manually by user.](figures/image6-8.avif)
 
 
 Additionally, the QP-Insights application includes a set of DICOMWeb standards-based functionalities for working with DICOM files via API.
 
 
 #### 6.2.2.3. Creating the dataset:
-Datasets uploaded to UPV reference node won’t be immediately published, it is necessary first to create a dedicated dataset from the data that was uploaded to the platform. QP-Insights implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the dataset name, description and purpose, along with the dataset type and method as shown in Figure 6.6. The dataset creation will later be reflected in the dataset explorer. 
+Datasets uploaded to UPV reference node won’t be immediately published, it is necessary first to create a dedicated dataset from the data that was uploaded to the platform. QP-Insights implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the name, description and purpose, along with the dataset type and method as shown in Figure 6.9. The dataset creation will later be reflected in the dataset explorer. 
 
-![Figure 6.10. (Left) Manually select the cases that will part of a dataset.  (Right) Complete dataset details and configuration before exporting it.](figures/image6-10.png)
+![Figure 6.9. (Left) Manually select the cases that will be part of a dataset. (Right) Complete dataset details and configuration before exporting it.](figures/image6-9.png)
 
 #### 6.2.2.4. Upload metadata
 The description of this user action refers to the release of a dataset as a discoverable one. This implies two steps:
@@ -96,13 +95,12 @@ The description of this user action refers to the release of a dataset as a disc
 
 3. Verify that the dataset is correct. You can create a Virtual Environment following the instructions given in Section 4. Once you have explored and verified that the information is correct, you can request the publication of the dataset's metadata through the helpdesk, by creating a token with the name "Request the publication of a dataset" and indicating its identifier.  The technical committee will verify that the data is correct and will publish the dataset, assigning a DOI and an entry in the EUCAIM UPV Reference node community in Zenodo (https://zenodo.org/communities/eucaim-upv-node-datasets/records?q=&l=list&p=1&s=10&sort=newest).
 
-#### 6.2.2.5. Trace a dataset
+#### 6.2.2.5. Dataset tracing
 The operations of creation, access and batch processing to a specific dataset are registered on a Blockchain Database. These operations are supported by the tracer service in the UPV reference node. This service logs any action performed on the datasets hosted in the reference node, but it has a REST API for any other service to register additional actions.
 
 The information on the access history is available through the UPV reference node dashboard in https://eucaim-node.i3m.upv.es/dataset-service, and can be queried to the REST API using the GET operation on the endpoint [https://eucaim-node.i3m.upv.es/tracer-service/tracer/api/v1/traces?datasetId=dataset-id](https://eucaim-node.i3m.upv.es/tracer-service/tracer/api/v1/traces?datasetId=dataset-id), provided that the user has the proper credentials.
 
 ### 6.2.3. Data Transfer to the HealthRI reference node
-
 Please make sure you fulfill the requisites before continuing with uploading your data to the [Health-RI XNAT](https://xnat.health-ri.nl)
 
 #### 6.2.3.1 Uploading Dicom data
