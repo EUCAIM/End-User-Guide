@@ -82,7 +82,7 @@ Additionally, the QP-Insights application includes a set of DICOMWeb standards-b
 #### 6.2.2.3. Creating the dataset:
 Datasets uploaded to UPV reference node won’t be immediately published, it is necessary first to create a dedicated dataset from the data that was uploaded to the platform. QP-Insights implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the name, description and purpose, along with the dataset type and method as shown in Figure 6.9. The dataset creation will later be reflected in the dataset explorer. 
 
-![Figure 6.9. (Left) Manually select the cases that will be part of a dataset. (Right) Complete dataset details and configuration before exporting it.](figures/image6-9.png)
+![Figure 6.9. (Left) Manually select the cases that will be part of a dataset. (Right) Complete dataset details and configuration before exporting it.](figures/image6-9.avif)
 
 #### 6.2.2.4. Upload metadata
 The description of this user action refers to the release of a dataset as a discoverable one. This implies two steps:
