@@ -72,7 +72,7 @@ The application will scan all patients, studies, and series present in the selec
 After selecting **upload of clinical data** select the target project. Then, upload the file containing the clinical data. Both Excel and CSV formats are suppported. Please ensure that **the first column is labeled PatientID** and the values in this column **match the DICOM PatientID tag** (0010, 0020) of your image data. This will ensure your clinical data is correctly linked to the image data. As with image uploads, any errors will generate a downloadable tabular report. 
 
 
-![Figure 6.5.  Upload of clinical data (Left) Select the patients which clinical data you want to update. (Right) Upload status.  ](figures/image6-5.avif)
+![Figure 6.5.  Upload of clinical data. (Left) Select the patients which clinical data you want to update. (Right) Upload status.](figures/image6-5.avif)
 
 
 **Accessing Uploaded Data** 
@@ -115,7 +115,7 @@ Additionally, the QP-Insights application includes a set of DICOMWeb standards-b
 #### 6.2.2.3. Creating the dataset:
 Datasets uploaded to UPV reference node won’t be immediately published, it is necessary first to create a dedicated dataset from the data that was uploaded to the platform. QP-Insights implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the dataset name, description and purpose, along with the dataset type and method as shown in Figure 6.6. The dataset creation will later be reflected in the dataset explorer. 
 
-![Figure 6.12. (Left) Manually select the cases that will part of a dataset.  (Right) Complete dataset details and configuration before exporting it.](figures/image6-12.png)
+![Figure 6.12. (Left) Manually select the cases that will part of a dataset.  (Right) Complete dataset details and configuration before exporting it.](figures/image6-12.avif)
 
 #### 6.2.2.4. Upload metadata
 The description of this user action refers to the release of a dataset as a discoverable one. This implies two steps:
