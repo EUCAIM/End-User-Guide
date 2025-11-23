@@ -72,7 +72,7 @@ The application will scan all patients, studies, and series present in the selec
 After selecting **upload of clinical data** select the target project. Then, upload the file containing the clinical data. Both Excel and CSV formats are supported. Please ensure that **the first column is labeled PatientID** and the values in this column **match the DICOM PatientID tag** (0010, 0020) of your image data. This will ensure your clinical data is correctly linked to the image data. As with image uploads, any errors will generate a downloadable tabular report. 
 
 
-![Figure 6.5.  Upload of clinical data. (Left) Select the patients which clinical data you want to update. (Right) Upload status.](figures/image6-5.avif)
+![Figure 6.5.  Upload of clinical data. (Left) Select the patients which clinical data you want to update. (Right) Upload status.](figures/image6-5.png)
 
 
 **Accessing Uploaded Data** 
