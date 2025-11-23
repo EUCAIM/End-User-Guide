@@ -49,9 +49,9 @@ QP-Insigths supports the ingestion of DICOM Images and associated clinical data 
 #### 6.2.2.1 Batch upload via QP-Insights Uploader (Desktop App):
 The [QP-Insights Uploader](https://bio.tools/qp-insights_uploader) desktop application can be downloaded from the EUCAIM [harbor registry](https://harbor.eucaim.cancerimage.eu/harbor/projects/3/repositories/qp_insights_uploader/artifacts-tab).  Guidance on how to download softwares is provided in Section 5.4. 
 
-First, log in you using your **UPV reference node credentials**. If you previously accessed the platform using LS-AAI, you may need to manually set up a password. You can do this under:
+First, log in using your **UPV reference node credentials**. If you previously accessed the platform using LS-AAI, you may need to manually set up a password. You can do this under:
 
- User Account -> Account security -> Signing in. 
+ [Main page](https://eucaim-node.i3m.upv.es) -> User Account -> Account security -> Signing in -> Add a password. 
  
  Once logged in, select the type of data you intend to upload first: imaging or clinical. 
 
@@ -69,7 +69,7 @@ The application will scan all patients, studies, and series present in the selec
 
 **Upload of clinical data** 
 
-After selecting **upload of clinical data** select the target project. Then, upload the file containing the clinical data. Both Excel and CSV formats are suppported. Please ensure that **the first column is labeled PatientID** and the values in this column **match the DICOM PatientID tag** (0010, 0020) of your image data. This will ensure your clinical data is correctly linked to the image data. As with image uploads, any errors will generate a downloadable tabular report. 
+After selecting **upload of clinical data** select the target project. Then, upload the file containing the clinical data. Both Excel and CSV formats are supported. Please ensure that **the first column is labeled PatientID** and the values in this column **match the DICOM PatientID tag** (0010, 0020) of your image data. This will ensure your clinical data is correctly linked to the image data. As with image uploads, any errors will generate a downloadable tabular report. 
 
 
 ![Figure 6.5.  Upload of clinical data. (Left) Select the patients which clinical data you want to update. (Right) Upload status.](figures/image6-5.avif)
@@ -94,14 +94,14 @@ You will be prompted to select the project in which you want to upload the exam.
 If the subject does not yet exist, type the desired subject name. A button will appear to the right of the search field allowing you to create the new subject when no match is found.
 After that, select the appropriate timepoint from the drop-down menu.
 
-![Figure 6.8.  (Left) Project selection.  (Right) Subject selection. (Bottom) Timepoint selection. ](figures/image6-8.avif)
+![Figure 6.8.  (Left) Project selection.  (Center) Subject selection. (Right) Timepoint selection. ](figures/image6-8.avif)
 
 To add imaging data, click inside the upload box to browse for your DICOM files or drag and drop them directly into the window.
-Once selected, the interface will display the list of exams identified in the upload. All series are automatically checked for upload, but you may deselect any series you do not wish to include by unticking the corresponding boxes in the Included column.
+Once selected, the interface will display the list of exams identified in the upload. All series are automatically checked for upload, but you may deselect any series you do not wish to include by unticking the corresponding boxes in the "Included" column.
 
 ![Figure 6.9. (Left) Add exam menu. (Right) List of exams loaded.  ](figures/image6-9.avif)
 
-During the upload, you will see live progress updates. When the process completes, a summary of the import results will appear. Select “Go to exams” to close the summary and return to the Cases view.
+During the upload, you will see live progress updates. When the process completes, a summary of the import results will appear. Select “Go to Cases” to close the summary and return to the Cases view.
 
 ![Figure 6.10. (Left) Upload progress. (Right)  Summary of the exam import process. ](figures/image6-10.avif)
 
@@ -113,28 +113,27 @@ Additionally, the QP-Insights application includes a set of DICOMWeb standards-b
 
 
 #### 6.2.2.3. Creating the dataset:
-Datasets uploaded to UPV reference node won’t be immediately published, it is necessary first to create a dedicated dataset from the data that was uploaded to the platform. QP-Insights implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the dataset name, description and purpose, along with the dataset type and method as shown in Figure 6.6. The dataset creation will later be reflected in the dataset explorer. 
+Datasets uploaded to UPV reference node won’t be immediately published, it is necessary first to create a dedicated dataset from the data that was uploaded to the platform. QP-Insights implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the name, description and purpose, along with the dataset type and method as shown in Figure 6.12. The dataset creation will later be reflected in the dataset explorer. 
 
-![Figure 6.12. (Left) Manually select the cases that will part of a dataset.  (Right) Complete dataset details and configuration before exporting it.](figures/image6-12.avif)
+![Figure 6.12. (Left) Manually select the cases that will be part of a dataset.  (Right) Complete dataset details and configuration before exporting it.](figures/image6-12.avif)
 
 #### 6.2.2.4. Upload metadata
 The description of this user action refers to the release of a dataset as a discoverable one. This implies two steps:
 
-1. Register the dataset in the catalogue. This is required for all datasets, including those in Tier 1. The process of registration will be automated but it is manual for the current time being.  The dataset schema can be downloaded from this [link](https://docs.google.com/spreadsheets/d/1cj6YzIAchHnEKlH612gO91WzHfEOB4TbwBrl9a0kgE0/edit?usp=sharing). In case of doubts with the terminology, use textual descriptions. It is very important that the Identifier matches the id that the federated search will provide for this dataset, as it is the only field that cannot be changed afterwards. For example, in Figure 6.7 the id would be `c75d0998-85db-4c94-9d2c-346961f0c6f7`.  Once you have filled in all the information, create a ticket on the [https://help.cancerimage.eu/](helpdesk) under the category "catalogue", providing the spreadsheet file with the metadata information. The helpdesk team will contact you back informing if the dataset has been properly registered or requesting more information. Once it is created, you can access the registry in the catalogue at the URL: [https://catalogue.eucaim.cancerimage.eu/#/collection/<>](https://catalogue.eucaim.cancerimage.eu/#/collection/<>).
-
-2. Make the dataset discoverable through the Federated Search (required for Tier 2 and above). If the dataset is uploaded to the reference node, it can be made discoverable by setting the status of the dataset as “published”, which triggers the publication of the metadata in Zenodo. This step is performed through the GUI in [https://eucaim-node.i3m.upv.es/dataset-service](https://eucaim-node.i3m.upv.es/dataset-service), selecting the dataset created. Figure 6.7 shows this GUI. Once the information is properly filled-in, the dataset can be set as released using the "Actions" button. 
+1. **Release the dataset** in the catalogue of the node. To do it you have to access the [catalogue of the node](https://eucaim-node.i3m.upv.es/dataset-service), look for the dataset (initially with the flag "draft", only visible to you) and enter the details page (Figure 6.13). Here verify that the draft of dataset is correct, review all the properties, ensure all of them are filled in, including the contact information and license. You can even create a Virtual Environment following the instructions given in Section 4 to explore the contents. Then you can "release" the dataset, there is an option for that in the "Actions" button.
 
 ![Figure 6.13. Dataset metadata update.](figures/image6-13.avif)
 
-3. Verify that the dataset is correct. You can create a Virtual Environment following the instructions given in Section 4. Once you have explored and verified that the information is correct, you can request the publication of the dataset's metadata through the helpdesk, by creating a token with the name "Request the publication of a dataset" and indicating its identifier.  The technical committee will verify that the data is correct and will publish the dataset, assigning a DOI and an entry in the EUCAIM UPV Reference node community in Zenodo (https://zenodo.org/communities/eucaim-upv-node-datasets/records?q=&l=list&p=1&s=10&sort=newest).
+2. **Register the dataset in the EUCAIM's catalogue**. This is required for all datasets, including those in Tier 1. The process of registration will be automated but it is manual for the current time being.  The dataset schema can be downloaded from this [link](https://docs.google.com/spreadsheets/d/1cj6YzIAchHnEKlH612gO91WzHfEOB4TbwBrl9a0kgE0/edit?usp=sharing). In case of doubts with the terminology, use textual descriptions. It is very important that the Identifier matches the id that the federated search will provide for this dataset, as it is the only field that cannot be changed afterwards. For example, in Figure 6.13 the id would be `c75d0998-85db-4c94-9d2c-346961f0c6f7`.  Once you have filled in all the information, create a ticket on the [helpdesk](https://help.cancerimage.eu/) under the category "catalogue", providing the spreadsheet file with the metadata information. The helpdesk team will contact you back informing if the dataset has been properly registered or requesting more information. Once it is created, you can access the registry in the catalogue at the URL: [https://catalogue.eucaim.cancerimage.eu/#/collection/<>](https://catalogue.eucaim.cancerimage.eu/#/collection/<>).  
+Additionally the flag "Published" will be added to the dataset in the catalogue of the node and so it will be included in the [EUCAIM UPV Reference node community in Zenodo](https://zenodo.org/communities/eucaim-upv-node-datasets/records?q=&l=list&p=1&s=10&sort=newest) acquiring a DOI.  
+And finally the dataset will be discoverable through the Federated Search (required for Tier 2 and above).
 
-#### 6.2.2.5. Trace a dataset
+#### 6.2.2.5. Dataset tracing
 The operations of creation, access and batch processing to a specific dataset are registered on a Blockchain Database. These operations are supported by the tracer service in the UPV reference node. This service logs any action performed on the datasets hosted in the reference node, but it has a REST API for any other service to register additional actions.
 
 The information on the access history is available through the UPV reference node dashboard in https://eucaim-node.i3m.upv.es/dataset-service, and can be queried to the REST API using the GET operation on the endpoint [https://eucaim-node.i3m.upv.es/tracer-service/tracer/api/v1/traces?datasetId=dataset-id](https://eucaim-node.i3m.upv.es/tracer-service/tracer/api/v1/traces?datasetId=dataset-id), provided that the user has the proper credentials.
 
 ### 6.2.3. Data Transfer to the HealthRI reference node
-
 Please make sure you fulfill the requisites before continuing with uploading your data to the [Health-RI XNAT](https://xnat.health-ri.nl)
 
 #### 6.2.3.1 Uploading Dicom data
