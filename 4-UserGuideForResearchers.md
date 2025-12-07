@@ -130,14 +130,13 @@ First, a brief summary of your request will be displayed (see Figure 4-18). By c
 
 ![Figure 4-18. Negotiator Access Form.](figures/image4-18.png)
 
-More information about these documents can be found in Annex II. Documentation Required by the negotiator for existing datasets. You can also access this information on the negotiator documentation in the "Become a User" section of the dashboard. Note that for the submission, you need an already approved project with a favourable Ethics Committee report, which justifies the request for accessing the data (see figure 4-19).
-
-![Figure 4-19. How to access the documentation required by the negotiator for existing datasets.](figures/image4-19.avif)
-
-
-Moreover, bear in mind that if you are seeking to build your own Observational Study with RWD, you can make a proposal by selecting the "Build an Observational Study with RWD" dataset. By sending it to the negotiator, you will be able to fill out the request, including the documents described in Annex III. Documentation Required by the Negotiator for building datasets, regarding your proposal (see figure 4-20). You can also access this information on the negotiator documentation in the "Become a User" section of the dashboard. We will then share it with our network of clinical data holders to make your project a reality.
-
-![Figure 4-20. How to access the Documentation Required by the negotiator for building datasets.](figures/image4-20.avif)
+The information required for an application is included in 6 subsections:
+1. Request summary, which presents a summary of the datasets requested.
+2. Contact Details, which asks the applicant to provide the organization name and acronym, and the details of the Principal Investigator, including title, name, surname, phone and role in the organization.
+3. Scientific Relevance, which covers the application Title, Description (objectives, methodology, expected results and impact), project timeline, the expected benefits of using EUCAIM data and AI Algorithms, the period in which the data should be made available, and additional comments.
+4. Ethical and legal requirements, which consists on a set of checklists related to the availablity of an ethical approval, the law obligations, the means to demonstrate due diligence in the compliance with the regulation, the interest on applying for certification of software as medical device, AI compliance and the confirmation of collecting the information exposed.
+5. The confirmation of the consent to use the personal data provided by the applicant for the evaluation of the proposal.
+6. Overview
 
 An overview of the Access Form submission is shown before you submit the request. Once submitted, it will undergo an evaluation process. First, the application will undergo an administrative review to ensure all information is valid. Then, it will be reviewed by the Access Committee, which will conduct a technical and scientific evaluation.
 
@@ -161,6 +160,8 @@ The lifecycle of negotiations is described in figure 4-23, and comprises the fol
 - Started: This status indicates that the application submission has been successfully evaluated and access to the data is granted.
 - Concluded: This status indicates that the project that supported the access to the data has been completed and access to data is not anymore available.
 - Abandoned or declined: Both statuses lead to the termination of the data access request application process. Abandoned status is triggered by the user and Declined status is triggered by the EUCAIM side.
+
+
 
 ![Figure 4-23. Application workflow.](figures/image4-23.avif)
 
@@ -393,4 +394,5 @@ Every new ticket is assigned to the First Level Support Unit Team. This EUCAIM F
 For every reply you have in each ticket you will get an email from the EUCAIM Helpdesk system, informing you of all new activities related to each ticket. In order to leave the system, click in your initials icon, at the bottom left corner and in the “Sign out” button.
 
 For more information about EUCAIM Helpdesk, please refer to the EUCAIM Helpdesk End-User Guidelines at [https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk](https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk).
+
 
