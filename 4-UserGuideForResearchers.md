@@ -88,7 +88,7 @@ As an authenticated user, you can now access all the components available in the
 ## 4.5. Searching data
 As an authenticated user, a deeper search of the data can be done using the Federated Query component. This component allows for an advanced search across multiple sources.
 
-![Figure 4-14. EUCAIM Federated Query.](figures/image4-14.avif)
+![Figure 4-14. EUCAIM Federated Query.](figures/image4-14.png)
 
 The Federated Query component provides various filters to refine your search (see figure 4-14). These filters are available at the right panel and include:
 
@@ -105,7 +105,7 @@ The Federated Query component provides various filters to refine your search (se
 
 As a result, you will obtain the collections with the total amount of studies and subjects fulfilling your search criteria. Additionally, clicking on the name of the dataset, you will be redirected to its entry in the Public Catalogue, where you will be able to request access to it (see figure 4-15).
 
-![Figure 4-15. How to access the EUCAIM Public Catalogue information from the federated query.](figures/image4-15.avif)
+![Figure 4-15. How to access the EUCAIM Public Catalogue information from the federated query.](figures/image4-15.png)
 
 So once you have found the datasets that meet your search criteria for your study, you can download a report of the results by clicking on the download button and then return to the Public Catalogue to initiate the data access request. This report contains the details of the query and the results obtained, and it will be used to narrow down the details of the access request. Data is coded into JSON format.
 
@@ -120,7 +120,7 @@ Now that you have identified the datasets valuable for your project, you can sta
 3. Send selection for negotiation:
 - Once satisfied with your selection, click on the "Send to the negotiator" button to initiate the negotiation process.
 
-![Figure 4-16. How to add datasets for requesting access to them.](figures/image4-16.avif)
+![Figure 4-16. How to add datasets for requesting access to them.](figures/image4-16.png)
 
 ![Figure 4-17. How to start the negotiation process.](figures/image4-17.png)
 
@@ -145,30 +145,25 @@ An overview of the Access Form submission is shown before you submit the request
 
 Finally you can review your requests and check your open negotiations, tracking their status and modifications (see Figure 4-22). The EUCAIM team will respond to your submitted requests as soon as possible, enabling a smooth negotiation process to grant you access to the valuable selected datasets and allowing you to start your project.
 
-![Figure 4-22. Overview of a submitted application.](figures/image4-22.avif)
+![Figure 4-22. Overview of a submitted application.](figures/image4-22.png)
 
 The lifecycle of negotiations is described in figure 4-23, and comprises the following statuses:
 
 - Under Review. The application proposal has been submitted and the eligibility is being evaluated by the Access Committee.
-- In Progress. The application proposal has been approved and the availability of data and access conditions are being collected. The positive progressing sub-statuses that the application goes through are:
-  - Representative Contacted: The dataset representative has received the request.
-  - Checking availability: The dataset representative is checking that the data request matches the data available in the dataset.
-  - Resource Available: An intermediate step to inform the data requester that the data holder has the data requested before the access conditions are communicated back.
-  - Access conditions indicated: The dataset responsible provides the access conditions for the specific use case of the data requester. General access conditions are provided before the negotiation starts, but depending on the purpose the data holder may require additional guarantees.
-  - Access conditions met: This sub-status is triggered by the data requester when the access conditions are received and are acceptable by the user.
+- In Progress. The application proposal has entered in the full review process. Scientific, technical, legal aspects will be analysed, as well data availability will be checked. The positive progressing sub-statuses that the application goes through are:
+  - Resource Available: The dataset manager for each one of the datasets requested have verified that the data requested is available. If changes have to be applied to the request, they will appear in the messaging system of the negotiator. The actual evaluation starts at this point and the ehtical, technical and scientific evaluation reports will be shared in the messaging system. 
+  - Checking Availability: The application has been approved and the process of access management starts. This status means that the actual data is being collected, minimised and prepared for being shared. If issues in the data collection appear, messages can be exchanged through the negotiator with the specific dataset manager.
+  - Access conditions indicated: The applicant receives the package of documents for safely accessing the data requested. They must be completed and signed, and returned back through the same messaging channel.
+  - Access conditions met: The Legal team has verified that the legal information is complete and correct.
   - Resource Made Available: This sub-status is the final one of the “In-progress” status and indicates that the access to the data has been granted. The dataset representative will send the access procedure and will ensure that the user account in LS-AAI is valid for accessing the data. This is an intermediate status triggered by the dataset responsible.
-- Started: This status indicates that the application submission has been successfully evaluated and access to the data is granted.
-- Concluded: This status indicates that the project that supported the access to the data has been completed and access to data is not anymore available.
+- Concluded: This status indicates that the application evaluatiopn has been completed for all the datasets requested.
 - Abandoned or declined: Both statuses lead to the termination of the data access request application process. Abandoned status is triggered by the user and Declined status is triggered by the EUCAIM side.
 
-
-
-![Figure 4-23. Application workflow.](figures/image4-23.avif)
+![Figure 4-23. Application workflow.](figures/image4-23.png)
 
 Additionally, there are three sub-statuses of the “In progress” status that holds or terminates the process due to different conditions:
 
 - Resource unavailable, when the data requested does not match the data available. For example, the data request may include clinical information that is not available.
-- Resource unavailable but willing to collect, when the dataset responsible considers that the request can be addressed but it will require additional actions (e.g. additional processing resources, software packages) or data that can be obtained in an observational study.
 - Resource not made available, triggered by the data requester when the access conditions for the data cannot be accepted.
 
 The information exchange among the different actors for each one of the stages is shown in detail in the negotiation application and through e-mail. Figure 4-24 shows a snapshot of the user requester and admin panels.
@@ -394,5 +389,6 @@ Every new ticket is assigned to the First Level Support Unit Team. This EUCAIM F
 For every reply you have in each ticket you will get an email from the EUCAIM Helpdesk system, informing you of all new activities related to each ticket. In order to leave the system, click in your initials icon, at the bottom left corner and in the “Sign out” button.
 
 For more information about EUCAIM Helpdesk, please refer to the EUCAIM Helpdesk End-User Guidelines at [https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk](https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk).
+
 
 
