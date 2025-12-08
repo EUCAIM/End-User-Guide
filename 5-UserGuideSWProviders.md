@@ -20,7 +20,7 @@ The normal procedure to integrate an application is creating a Docker image cont
 Those instructions do not apply to applications that are expected to be downloaded by the data holders to prepare the data, and refer only to those applications to run inside the EUCAIM platform.
 
 ## 5.4. EUCAIM Software registry
-EUCAIM provides a software registry for those applications that has to be updated to work in the context of EUCAIM. The software registry is based on a Harbor registry of artifacts, and it is deployed in [https://harbor.eucaim.cancerimage.eu](https://harbor.eucaim.cancerimage.eu). The registry can store OCI-compatible software containers, helm charts and other artifacts. Non-OCI compliant artifacts can be encoded through a tool such as ORAS ([https://oras.land/](https://oras.land/)).
+EUCAIM provides a software registry for those applications that has to be updated to work in the context of EUCAIM. The software registry is based on a Harbor registry of artifacts, and it is deployed in [https://harbor.eucaim.cancerimage.eu](https://harbor.eucaim.cancerimage.eu). The registry can store OCI-compatible software containers, helm charts and other artifacts. Non-OCI compliant artifacts can be encoded through a tool such as ORAS ([https://oras.land/](https://oras.land/)) or (preferrably) can be uploaded to EUCAIM's dedicated drive (see next subsection).
 
 The EUCAIM Software Registry is restricted to users in the Harbor subgroup of the EUCAIM VO ([https://perun.aai.lifescience-ri.eu/organizations/3345/groups/43153](https://perun.aai.lifescience-ri.eu/organizations/3345/groups/43153)). Enrolment to this subgroup can be requested on the first access to the registry. A valid LS-AAI account is needed.  Next figure shows the page that will be shown at the first access time and the form to be filled in to request access to the subgroup.
 
@@ -41,6 +41,7 @@ The procedure for pulling or pushing an OCI-compliant artifact (e.g. a Docker co
 - Push an image using the standard Docker command: `docker push harbor.eucaim.cancerimage.eu/<<project>>/<<image_name>>:<<tag>>`, replacing `<<project>>` by one of the two projects available: ingestion-tools if the tool is related to data preparation and uploading or eucaim in case of a processing tool. Replace `<<image_name>>` and `<<tag>>` by the appropriate values.
 - Pull an image using the Docker command: `docker pull harbor.eucaim.cancerimage.eu/<<project>>/<<image_name>>:<<tag>>`. Replace the values into curly brackets by the appropriate values.
 
+In the case that you want to upload a binary file that cannot be (or shouldn't be) containerised (such as Windows/MacOs native tool for data preparation with its own Graphical User Interface), binaries can be embedded in an OCI package or (preferrably) upload it to the drive repository of EUCAIM (see next subsection). The next steps describe how to convert a binary into an OCI package and upload it in the harbor repository. Additionally, you instructions to download it and unpack the binaries is provided.
 In this case, we suggest to provide the `docker pull harbor.eucaim.cancerimage.eu/<<project>>/<<image_name>>:<<tag>>` as the download link.
 - The procedure for pulling or pushing non OCI-compliant artifacts (e.g. a zip file) is the following:
 - Retrieve the user and access token through the harbor registry user profile (see figure 5.1)
@@ -51,9 +52,23 @@ In this case, we suggest to provide the `docker pull harbor.eucaim.cancerimage.e
 
 In this case, we suggest to provide the `oras pull harbor.eucaim.cancerimage.eu/<<project>>/<<artifact-name>>:<<tag>>` as the download link.
 
-## 5.5. Software Registration in the catalogue
+## 5.5. EUCAIM Drive
+A repository has been deployed to upload and download other type of objects, such as non-containerised applications or documents. The repository is available in the URL [https://drive.eucaim.cancerimage.eu/](https://drive.eucaim.cancerimage.eu/) and it has two main areas:
+
+- General Documents: An area where the general documents of the project are stored and linked. This area is restricted to admin users for uploading and public links to those documents are available in the Document section of the Dashboard.
+- Applications: An area where the documentation and the binaries of the applications can be uploaded and downloaded.
+
+![Figure 5.6. EUCAIM's drive, Logging in the applicaton (left) and view of the two main folders (right).](figures/image5-6b.png)
+
+Only users in the "pull" or "push" subgroups of the harbor group in EUCAM LS-AAI VO can access the documents through the interface. Users in the "push" subgroup can create folders and store documents in the Application area. Software develepores who want to upload binaries and documents for their tools should creatre a folder with the tool name and store the data there, creating public links to make the objects accessible.
+
+To create a symbolic public link, a user with write permissions can click on "Details" and copy the public URL created by the system. Figure 5.7 illustrates a screen shot of the process.
+
+![Figure 5.7. EUCAIM's drive, Details on a file from the applications folder (left) and obtaining a public link (right).](figures/image5-7.png)
+
+## 5.6. Software Registration in the catalogue
 Once you have the Dockerfile describing your image, you have to made it available (with all the files needed for building the image) to us in a public or private repository, in Github or any other source code repository provider. And finally create a request in the HelpDesk, under the category "Technical Support Team".  We will review the application and eventually come back with suggestions and changes. Once approved, you can proceed with the registration in the catalogue. 
 
-![Figure 5.6. EUCAIM domain in Biotools (left) and registration of a tool (right).](figures/image5-6.webp)
+![Figure 5.8. EUCAIM domain in Biotools (left) and registration of a tool (right).](figures/image5-6.webp)
 
 EUCAIM manages a catalogue of descriptions of the applications and a registry where the binaries of the applications can be deposited. The catalogue is available in the EUCAIM domain of the ELIXIR biotools ([https://bio.tools/t?domain=eucaim](https://bio.tools/t?domain=eucaim)). You should create an account and create a tool under this group. Once you have created an account, you can register your tool in the "Menu" / "Add a tool" option. It is important that you fill in as much information as possible. You can use the downloading URLs of the registry described in the previous section as the download URLs. The inclusion of the tool in the EUCAIM domain can be requested by inserting the value "eucaim" in the "collections" field of the "Labels" panel. The inclusion in the group has to be validated by the domain manager.
