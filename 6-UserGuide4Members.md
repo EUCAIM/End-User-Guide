@@ -195,8 +195,83 @@ The recommendations for the hardware of the federated node at tier 3 are the fol
 | *Power Supply* | || <ul><li>  Each DH must make calculations depending on the hardware setup that will be selected to make sure that needed Wattage is covered and ideally exceeded to prepare for any future upgrades to the machine.</li></ul> |
 | *Internet* | 100mbps (baseline) || <ul><li> Each DH must make best efforts to provide the best possible connection to their Node. Network performance will directly affect node stability and can invalidate AI training or prevent successful demonstrations of the platform.</li></ul> |
 
+## 6.3.1 Setting up a local node with Mini-node {#6.3.1.-setting-up-a-local-node-with-mini-node}
 
-## 6.3.1. Tier 1 compliance
+Data holders that do not have a local node could easily deploy a minimal node capable of providing access to data to data users and link to the EUCAIM federation by means of the EUCAIM mini node ([https://github.com/EUCAIM/mini-node](https://github.com/EUCAIM/mini-node)). The mini node currently features:
+
+- A local catalogue to organize the data provided by the Data Holder.
+- An AAI service based on Keycloak, with scripts to automatically configure the permissions.
+- An environment to deploy secure Virtual Research Environments for Data Users to access the data securely.
+- An Application Manager to manage a catalogue of applications to be deployed in the VREs.
+- An endpoint to expose the data to the Federated Search service of EUCAIM.
+
+The mini node will be extended with the capability of running batch jobs and the materialisator component to integrate with the Federated Processing.
+
+#### 6.3.1.1 Requirements {#6.3.1.1-requirements}
+
+Mini node works on top of a Kubernetes cluster and users scripts in Python. If the expected workload is limited (in the order o5 5 concurrent users as a maxium), the whole node can be setup in a single computer, following the Tier 2/3 hardware requirements described at the begining of the section. Linux is preferrable, but the setup of Kubernetes provides a virtualization layer that could overcome this requirement. With respect to the Kubernetes release, despite that the mini node manifests could work with any compatible distribution, we encourage the usage of (minikube)[https://minikube.sigs.k8s.io/docs/]. The installation of minikube is well described in the documentation available in the previous link. 
+
+Additionally, the host computer must have:
+- Python 3.8+ to run the configuration scripts.
+- Kebernetes minikube installed and configured with the addons ingress and Helm.
+- Kubectl and Helm shortcuts available in your PATH.
+- GitHub SSH key configured.
+
+The ([https://github.com/EUCAIM/mini-node](https://github.com/EUCAIM/mini-node)) repository contains the scripts and configuration files to automate the deployment of a mini EUCAIM node using Kubernetes and Minikube. It includes automated installation for Keycloak, Guacamole, and the Dataset Service, with all secrets and configuration injected from a single YAML file.
+
+#### 6.3.1.2 Minikube customisation {#6.3.1.2-minikube-customisation}
+
+The mini node expects that the Data Holder deposits the imaging data on a directory accessible by its dataset service. By default, Minikube’s default hostPath provisioner stores PersistentVolume data inside the Minikube VM/container. When using the Docker driver, this means that the data lives inside the ephemeral Minikube container and will be lost if the cluster is deleted or recreated.
+
+To ensure data is stored on the host machine and survives Minikube restarts, we should configure a host directory mount at startup so that /var/hostpath-provisioner in Minikube points to a persistent directory on your host.
+
+Example (Linux and macOs host):
+```
+minikube start --driver=docker --addons ingress \
+               --cpus 8  --memory 32g \
+               --mount --mount-string="/home/ubuntu/minikube-data:/var/hostpath-provisioner"
+```
+
+Example (Windows host):
+
+**Important:** For the mount to work on Windows, the host path must be inside a directory that Docker Desktop has shared with the internal Linux VM. This is configured in Docker Desktop → Settings → Resources → File Sharing.
+
+```
+minikube start --driver=docker --addons ingress \
+               --cpus 8  --memory 32g \
+               --mount --mount-string="C:/Users/<username>/minikube-data:/var/hostpath-provisioner"
+```
+
+Additionally, it is important to have shortcuts for the `kubectl` (the command that interacts with minikube) and `helm` (the command that interacts with the Helm chart manager, as the automated scripts will expect them to be available in the `PATH`. For this purpose, the following commands can be run:
+```
+alias 'kubectl=minikube kubectl --`
+alias 'helm=minikube helm --`
+```
+
+### 6.3.1.3. Mini node installation {#6.3.1.2-mini-node-installation}
+
+For the installation of mini node, the repository provides the Data Holder with three files:
+
+- install.py – Main Python script to deploy all services and inject configuration.
+- config.py – Configuration loader and validation logic.
+- config.yaml – Example configuration file for secrets, domains, and service parameters.
+
+The steps that should be followed are:
+
+1. Clone this repository:
+
+  `git clone https://github.com/EUCAIM/mini-node.git`<br/>
+  `cd mini-node`
+
+2. Edit config.yaml
+Fill in your domain, passwords, and other required values.
+
+3. Run the installer with python install.py:
+
+- micro: Installs Keycloak, Dataset Service, and Guacamole.
+- mini: Installs KubeApps, K8s Operator and Federated Search. (In progress).
+
+## 6.3.2. Tier 1 compliance
 The compliance at the Tier 1 level implies that the metadata of the datasets follow the  EUCAIM DCAT-AP specification. In this case, the data holder can decide to register the datasets directly on the EUCAIM public catalogue or to set up its own federated registry. At this moment in time, we recommend the former, as the harvester will be released soon. 
 The registration of the dataset on the public catalogue. has been described in section 6.2.2.4. The set up of a local catalogue is optional and comprise the following actions:
 - Dataset metadata preparation. This implies identifying the data to be shared and packaged into a dataset, the extraction of the metadata and the appropriate coding into the EUCAIM DCAT-AP terminology and vocabularies. This has been covered in section 6.2.2.3 of this document.
@@ -204,7 +279,7 @@ The registration of the dataset on the public catalogue. has been described in s
 - Population of the data following the IM interoperability schema. This [sample file](https://docs.google.com/spreadsheets/d/19DDoFq-_Bj7wfEf5KjkISe13kS-W5EYQ/edit?usp=sharing&ouid=102741390744373897413&rtpof=true&sd=true) can be used to fill-in the information of the datasets and to create the schemas on the database.
 - In the coming future, we will support the federation of datasets through a pull model in which datasets’ metadata is harvested by the central catalogue. This will require deploying a local registry and populating it with the information of the DH’s datasets.
 
-## 6.3.2. Tier 2 compliance
+## 6.3.3. Tier 2 compliance
 
 The Tier 2 compliance implies that the data that is hosted at the federated node can be searched according to the searching variables defined in the CDM. At this point it is assumed that:
 - The Data Holder has set up a repository with the imaging and clinical data.
@@ -216,7 +291,7 @@ The steps to perform are:
 3. *Request registration in the explorer*. Once the components are deployed, a ticket in the helpdesk, under the category “federated search” should be created with the request “register a new federated search provider”. 
 4. *Mediator component deployment*. The deployment of a mediator component can be done as a Docker container. Section 5.2.1 Dataset in a Federated Node of D5.6 shows an example. Detailed instructions are provided next.
 
-### 6.3.2.1. Node Registration and Deployment
+### 6.3.3.1. Node Registration and Deployment
 After submitting and having your registration request accepted, perform the following steps:
 #### A. Generate and Submit a CSR
 Create a Certificate Signing Request (CSR) with the Common Name (CN) set to your provider’s ID plus the domain broker.eucaim.cancerimage.eu: 
@@ -297,7 +372,7 @@ For additional optional configuration, see the Focus README: `https://github.com
 Once you have your metadata mapping, your Mediator component operational, the Root CA certificate included, your CSR signed, and your Docker Compose correctly configured with BEAM Proxy and Focus, proceed to deploy everything and verify that your node has been correctly added to the Explorer.
 
 
-## 6.3.3. Tier 3 compliance
+## 6.3.4. Tier 3 compliance
 
 The following is the usual “step-by-step” procedure to deploy FEM-client, the component responsible for connecting a node to the EUCAIM’s federated network. 
 
