@@ -2,7 +2,7 @@
 This guide is designed to help researchers navigate the platform, access data, and understand the procedures in place. The EUCAIM platform facilitates data sharing, reuse, and collaborative research within a governed framework to ensure transparency and compliance.
 
 ## 4.1. Platform access
-The access to the platform is managed through the dashboard component, exposed in the https://dashboard.eucaim.cancerimage.eu/ URL, which can be opened in a browser on your computer or mobile device (tablet or smartphone). You can also access the dashboard through the EUCAIM project main website by clicking on “Visit the dashboard” button on [cancerimage.eu](https://cancerimage.eu/). Figure 4-1 shows a snapshot of the dashboard landing page and the cancerimage.eu main page.
+The access to the platform is managed through the dashboard component, exposed in the URL https://dashboard.eucaim.cancerimage.eu/, which can be opened in a browser on your computer or mobile device (tablet or smartphone). You can also access the dashboard through the EUCAIM project main website by clicking on “Visit the dashboard” button on [cancerimage.eu](https://cancerimage.eu/). Figure 4-1 shows a snapshot of the dashboard landing page and the cancerimage.eu main page.
 
 ![Figure 4-1. EUCAIM Dashboard, anonymous access (left) and EUCAIM project main webpage (right).](figures/image4-1.avif)
 
@@ -53,12 +53,6 @@ By selecting a dataset, clicking on its name, you can view all its relevant info
 The repository has several networks, each network has several imaging biobanks, each imaging biobank can have several datasets, and so on.
 This structure allows you to efficiently explore the resources and understand the potential of the platform before committing to the registration process. Research datasets are organised according to the minimal units in which they can be accessed. In some cases, datasets correspond to all the data in a repository related to a specific cancer type. In other cases, datasets correspond to individual data holders, depending on the conditions of the data transfer or data sharing agreements.
 
-Additionally, you will see a special dataset in the catalogue called "Build an Observational Study with RWD." The purpose of this dataset is to provide you with a way to create your own observational study by collecting data that is not yet available in the catalogue through our stakeholders network.
-
-![Figure 4-9. EUCAIM Public Catalogue, dataset for building an observational study.](figures/image4-9.avif)
-
-Note that the observational study dataset does not contain information by itself, which will be collected on demand.
-
 ### 3.2.4 Other relevant information
 
 Additionally, in the dashboard main page (see figure 4-10), you can watch our latest platform webinar, held in March 2024, which provides a comprehensive tutorial on how to use the platform and access the components, as well as addresses several interesting questions from participants.
@@ -80,12 +74,12 @@ After exploring the Dashboard and the Public Catalogue, you can proceed to the l
 
 Annex I. Registration of Users in EUCAIM shows how to create an account in the AAI system in EUCAIM through the EUCAIM Dashboard. It describes in detail the process of creating a Life Science AAI account and the request for membership in the EUCAIM Group.
 
-## 4.4. Accessing the components
+## 4.4. Accessing the components
 As an authenticated user, you can now access all the components available in the platform, from the header of the dashboard (see figure 4-13).
 
 ![Figure 4-13. EUCAIM Dashboard, authenticated access.](figures/image4-13.avif)
 
-## 4.5. Searching data
+## 4.5. Searching data
 As an authenticated user, a deeper search of the data can be done using the Federated Query component. This component allows for an advanced search across multiple sources.
 
 ![Figure 4-14. EUCAIM Federated Query.](figures/image4-14.png)
@@ -389,6 +383,7 @@ Every new ticket is assigned to the First Level Support Unit Team. This EUCAIM F
 For every reply you have in each ticket you will get an email from the EUCAIM Helpdesk system, informing you of all new activities related to each ticket. In order to leave the system, click in your initials icon, at the bottom left corner and in the “Sign out” button.
 
 For more information about EUCAIM Helpdesk, please refer to the EUCAIM Helpdesk End-User Guidelines at [https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk](https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk).
+
 
 
 
