@@ -57,11 +57,11 @@ This structure allows you to efficiently explore the resources and understand th
 
 Additionally, in the dashboard main page (see figure 4-10), you can watch our latest platform webinar, held in March 2024, which provides a comprehensive tutorial on how to use the platform and access the components, as well as addresses several interesting questions from participants.
 
-![Figure 4-10. EUCAIM Dashboard’s webinar.](figures/image4-10.avif)
+![Figure 4-10. EUCAIM Dashboard’s webinar.](figures/image4-10.png)
 
 It is important to state that EUCAIM is a federation that uses several applications and services from a widespread community. As shown in figure 4-11, you can explore and learn more about the technologies our platform relies on, by clicking on each logo. These technologies are developed by key collaborations as well as by third parties.
 
-![Figure 4-11. EUCAIM Dashboard, anonymous access.](figures/image4-11.avif)
+![Figure 4-11. EUCAIM Dashboard, anonymous access.](figures/image4-11.png)
 
 ## 4.3. User’s registration
 After exploring the Dashboard and the Public Catalogue, you can proceed to the login screen to register, to get access to all the components available at the platform. There are three ways to do so (see figure 4-12):
@@ -70,14 +70,14 @@ After exploring the Dashboard and the Public Catalogue, you can proceed to the l
 
 2. Scroll to the bottom of the "Become a User" section and click on the "Become a User now" button.
 
-![Figure 4-12. EUCAIM Dashboard, user’s registration through “My Profile” area (top) and from “Become a User” area (bottom).](figures/image4-12.avif)
+![Figure 4-12. EUCAIM Dashboard, user’s registration through “My Profile” area (top) and from “Become a User” area (bottom).](figures/image4-12.png)
 
 Annex I. Registration of Users in EUCAIM shows how to create an account in the AAI system in EUCAIM through the EUCAIM Dashboard. It describes in detail the process of creating a Life Science AAI account and the request for membership in the EUCAIM Group.
 
 ## 4.4. Accessing the components
 As an authenticated user, you can now access all the components available in the platform, from the header of the dashboard (see figure 4-13).
 
-![Figure 4-13. EUCAIM Dashboard, authenticated access.](figures/image4-13.avif)
+![Figure 4-13. EUCAIM Dashboard, authenticated access.](figures/image4-13.png)
 
 ## 4.5. Searching data
 As an authenticated user, a deeper search of the data can be done using the Federated Query component. This component allows for an advanced search across multiple sources.
@@ -383,6 +383,7 @@ Every new ticket is assigned to the First Level Support Unit Team. This EUCAIM F
 For every reply you have in each ticket you will get an email from the EUCAIM Helpdesk system, informing you of all new activities related to each ticket. In order to leave the system, click in your initials icon, at the bottom left corner and in the “Sign out” button.
 
 For more information about EUCAIM Helpdesk, please refer to the EUCAIM Helpdesk End-User Guidelines at [https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk](https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk).
+
 
 
 
