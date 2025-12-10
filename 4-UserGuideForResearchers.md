@@ -4,13 +4,13 @@ This guide is designed to help researchers navigate the platform, access data, a
 ## 4.1. Platform access
 The access to the platform is managed through the dashboard component, exposed in the URL https://dashboard.eucaim.cancerimage.eu/, which can be opened in a browser on your computer or mobile device (tablet or smartphone). You can also access the dashboard through the EUCAIM project main website by clicking on “Visit the dashboard” button on [cancerimage.eu](https://cancerimage.eu/). Figure 4-1 shows a snapshot of the dashboard landing page and the cancerimage.eu main page.
 
-![Figure 4-1. EUCAIM Dashboard, anonymous access (left) and EUCAIM project main webpage (right).](figures/image4-1.avif)
+![Figure 4-1. EUCAIM Dashboard, anonymous access (left) and EUCAIM project main webpage (right).](figures/image4-1.png)
 
 ## 4.2. Anonymous Users
 ### 4.2.1. Collection Summary
 As soon as you access the dashboard, you will find some summary diagrams that allow you to monitor the EUCAIM data population in real time. By hovering over each diagram, you can see information about the available datasets and subjects in each one, the number of studies for each imaging modality, and details of the main body parts to which the images correspond. Figure 4-2 shows a snapshot of those dynamic graphs.
 
-![Figure 4-2. EUCAIM Dashboard, collection summary.](figures/image4-2.avif)
+![Figure 4-2. EUCAIM Dashboard, collection summary.](figures/image4-2.png)
 
 ### 4.2.2. Roles information
 If you continue browsing the dashboard, you will find different ‘Become a’ sections corresponding to the four main roles that can be part of EUCAIM (see figure 6):
@@ -25,7 +25,7 @@ Members are organisations, institutions, or companies interested in collaboratio
 
 This user guide is centred on the role of the users. Therefore, by choosing the “Become a User icon”, you will obtain detailed information on which data EUCAIM provides, how the data request process is, the rules of participation and how to log in the platform.
 
-![Figure 4-3. EUCAIM Dashboard, collection summary.](figures/image4-3.avif)
+![Figure 4-3. EUCAIM Dashboard, collection summary.](figures/image4-3.png)
 
 ### 4.2.3. Public Catalogue
 As a user of the platform, even before registering, you can browse our Public Catalogue, where you will find information about all the available datasets, without requiring authentication. As shown in figure 4-4, you have two options to access the Public Catalogue:
@@ -34,11 +34,11 @@ Click the “PUBLIC CATALOGUE” button in the top right corner of the header
 
 Select the "Explore Public Catalog" Highlighted link
 
-![Figure 4-4. EUCAIM Dashboard, how to explore the public catalogue.](figures/image4-4.avif)
+![Figure 4-4. EUCAIM Dashboard, how to explore the public catalogue.](figures/image4-4.png)
 
 Both options will replace the current page with the Public Catalogue site. You can always return back to the dashboard main page by clicking on "Dashboard EUCAIM" option on the header. Figure 4-5 shows a snapshot of the catalogue landing page.
 
-![Figure 4-5. EUCAIM Public Catalogue, anonymous view.](figures/image4-5.avif)
+![Figure 4-5. EUCAIM Public Catalogue, anonymous view.](figures/image4-5.png)
 
 The Public Catalogue offers basic search and filtering options to help you find relevant datasets that align with your research interests and objectives. Filters are available in the panel on the left side of the screen. When applying filters, the datasets meeting your criteria will be displayed, as shown in figure 4-6,
 
@@ -46,9 +46,9 @@ The Public Catalogue offers basic search and filtering options to help you find 
 
 By selecting a dataset, clicking on its name, you can view all its relevant information, helping you understand it better. Although you cannot access or visualise the data at this point, thanks to the Public Catalogue, you will be able to see relevant metadata that provides significant information about them. Figure 4-7 shows a snapshot of the dataset metadata.
 
-![Figure 4-7. EUCAIM Public Catalogue, dataset metadata overview.](figures/image4-7.avif)
+![Figure 4-7. EUCAIM Public Catalogue, dataset metadata overview.](figures/image4-7.png)
 
-![Figure 4-8. EUCAIM Public Catalogue, datasets overview (left) and data relations (right). ](figures/image4-8.avif)
+![Figure 4-8. EUCAIM Public Catalogue, datasets overview (left) and data relations (right). ](figures/image4-8.png)
 
 The repository has several networks, each network has several imaging biobanks, each imaging biobank can have several datasets, and so on.
 This structure allows you to efficiently explore the resources and understand the potential of the platform before committing to the registration process. Research datasets are organised according to the minimal units in which they can be accessed. In some cases, datasets correspond to all the data in a repository related to a specific cancer type. In other cases, datasets correspond to individual data holders, depending on the conditions of the data transfer or data sharing agreements.
@@ -383,6 +383,7 @@ Every new ticket is assigned to the First Level Support Unit Team. This EUCAIM F
 For every reply you have in each ticket you will get an email from the EUCAIM Helpdesk system, informing you of all new activities related to each ticket. In order to leave the system, click in your initials icon, at the bottom left corner and in the “Sign out” button.
 
 For more information about EUCAIM Helpdesk, please refer to the EUCAIM Helpdesk End-User Guidelines at [https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk](https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk).
+
 
 
 
