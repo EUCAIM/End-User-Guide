@@ -2,7 +2,7 @@
 This section briefly describes the components of the platform, updating the descriptions provided in deliverables D5.1 Early release of the Data Federation Framework and D4.3: First rules for participation report. These deliverables are not extensive descriptions of the architecture. This is kept continuously updated in an online document [Architecture of EUCAIM](https://eucaim.gitbook.io/architecture-of-eucaim/).
 
 ## 3.1. The Dashboard
-The Dashboard is the entrypoint to the platform and contains the general information about the available datasets and the links to the different services of EUCAIM’s architecture. The Dashboard includes the main information and the links to the different services and applications, although it does not exchange information from the rest of the services. A detailed description of the functionality of the Dashboard is provided in Deliverable D4.7 First EUCAIM Dashboard.
+The Dashboard is the entrypoint to the platform and contains the general information about the statistics, the available datasets and the links to the different services of EUCAIM’s architecture. The Dashboard includes the main information and the links to the different services and applications. A detailed description of the functionality of the Dashboard is provided in Deliverable D4.8 Final EUCAIM Dashboard.
 
 ## 3.2. The Catalogue
 The catalogue contains the metadata of the datasets within EUCAIM. Through the filtering of and the browsing through the public catalogue entries, a user can freely look for datasets that are relevant to their research. Only after they have found a suitable dataset, a request can be made to access the actual data through the Negotiator.
@@ -32,3 +32,16 @@ Access request is initiated from the catalogue and it is managed by the negotiat
 ![Figure 3-2: Interactions in the access request process.](figures/image3-2.avif)
 
 Access request starts from the catalogue, which triggers the connection to the negotiator passing all the information needed through. Interactions between the dataset responsible (on behalf of the Access Committee) and the data requester are performed through the negotiator, ending up with the transfer of the access link to the dataset in the data holder.
+
+## 3.6. Access to data
+EUCAIM provides secure environments where the data can be processed and a federated processing service. Some nodes provide a secure and user friendly environment with GUIs where users can explore and process the data (CHAIMELEON, EUCAIM UPV, XXXX). Federated processing allosw to send processing jobs to the nodes without directly accessing to them.
+
+### 3.6.1. Accessing to data in a secure environment
+The nodes with processing environments are mainly intended for Data Scientists and supports in-situ processing of the data. Each node may have different access features and conditions, and precise information will be given in the access request.
+
+![Figure 3-3: Interactions in the access to one of the Secure Environments.](figures/image3-3.png)
+
+Previous figure shows the process of accessing data in one of the Secure Environments, which consist on selecting the dataset, choosing the rightmost Virtual Research Environment from a catalogue, instantaiating it and acccessing the data through a remote desktop.
+
+### 3.6.2. Accessing to data through the Federated Processing
+TO-DO
