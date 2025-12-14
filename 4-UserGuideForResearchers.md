@@ -190,15 +190,15 @@ The entry point to the UPV reference node is the local catalogue. The local cata
 
 The aggregated information is publicly available and it is stored in Zenodo too. Figure 4-26 shows a snapshot of the details page of one of the datasets, accessed by clicking on the “More” link.
 
-![Figure 4-26: Reference UPV node, view of the aggregated data from the reference node catalogue (left) and Zenodo (right).](image4-26.avif)
+![Figure 4-26: Reference UPV node, view of the aggregated data from the reference node catalogue (left) and Zenodo (right).](image4-26.png)
 
 The access to the dataset requires valid credentials. Users that have received a positive evaluation of the data access request will have access granted through her LS-AAI account. Once logged in (see figure 4-27), the user will see more information on the dataset and will be able to use the data on the Application Dashboard.
 
-![Figure 4-27: Reference UPV node, view of the aggregated data from the reference node catalogue (left) and Zenodo (right).](image4-27.avif)
+![Figure 4-27: Reference UPV node, view of the aggregated data from the reference node catalogue (left) and Zenodo (right).](image4-27.png)
 
 The user can deploy a Virtual Research Environment (VRE) through the App Dashboard. Four environments are provided with two different AI frameworks (Pytorch and Tensorflow) each one with or without a Jupyter notebook server (see figure 4-28). Users can find a previously deployed VRE environment or deploy a new one.
 
-![Figure 4-28: Catalogue of VRE applications (left) and applications deployed by the user (right).](figures/image4-28.avif)
+![Figure 4-28: Catalogue of VRE applications (left) and applications deployed by the user (right).](figures/image4-28.png)
 
 The deployment of a VRE from the catalogue provides the user the way to visualise and process the data. The deployment of a VRE through the catalogue only requires providing a valid name for the environment (only lower letters, a hyphen and numbers). The access to the VRE is performed through a reverse proxy in the platform. Figure 4-29 shows both actions.
 
@@ -350,7 +350,7 @@ This is done through LS AAI (Authentication and Authorization system), clicking 
 
 The first page that appears is this:
 
-![Figure 4-38: Helpdesk access page.](figures/image4-39.avif)
+![Figure 4-38: Helpdesk access page.](figures/image4-39.png)
 
 You have to click at the “Connect to LS AAI” in order to authenticate yourself. That will lead you towards the page where you should choose the company/institute/account you are linked to.
 
@@ -383,6 +383,7 @@ Every new ticket is assigned to the First Level Support Unit Team. This EUCAIM F
 For every reply you have in each ticket you will get an email from the EUCAIM Helpdesk system, informing you of all new activities related to each ticket. In order to leave the system, click in your initials icon, at the bottom left corner and in the “Sign out” button.
 
 For more information about EUCAIM Helpdesk, please refer to the EUCAIM Helpdesk End-User Guidelines at [https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk](https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk).
+
 
 
 
