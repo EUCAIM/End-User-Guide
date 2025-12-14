@@ -41,7 +41,17 @@ The nodes with processing environments are mainly intended for Data Scientists a
 
 ![Figure 3-3: Interactions in the access to one of the Secure Environments.](figures/image3-3.png)
 
-Previous figure shows the process of accessing data in one of the Secure Environments, which consist on selecting the dataset, choosing the rightmost Virtual Research Environment from a catalogue, instantaiating it and acccessing the data through a remote desktop.
+Previous figure shows the process of accessing data in one of the Secure Environments, which consist on selecting the dataset from the User's Library, choosing the rightmost Virtual Research Environment from a catalogue, instantaiating it and acccessing the data through a remote desktop.
 
 ### 3.6.2. Accessing to data through the Federated Processing
 TO-DO
+
+## 3.7. Other services for Software Developers and Data Holders
+The Plataform offers other services to Software developers to register and upload their binaries and additional documentation, as well to create persistent identifiers of the Datasets, the services are:
+- A service with the Hyperontology ([https://hyperontology.eucaim.cancerimage.eu/]), which has the linked data information from all the terms in the EUCAIM Hyperontology
+- A PID resolver service ([https://pid.eucaim.cancerimage.eu/dataset-id]), that forwards to the Catalogue entry of a dataset by providing its UUID. This provides uniquely resolvable identifiers to the datasets information similar to a DOI.
+- A document server ([https://drive.eucaim.cancerimage.eu/]), where users can find the applications and documents and Software Developers can upload their binaries and additional documents. 
+- An OCI registry ([https://harbor.eucaim.cancerimage.eu/]) to store and download containerised applications.
+
+
+
