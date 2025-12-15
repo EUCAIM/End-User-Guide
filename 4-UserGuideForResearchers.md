@@ -202,7 +202,7 @@ The user can deploy a Virtual Research Environment (VRE) through the App Dashboa
 
 The deployment of a VRE from the catalogue provides the user the way to visualise and process the data. The deployment of a VRE through the catalogue only requires providing a valid name for the environment (only lower letters, a hyphen and numbers). The access to the VRE is performed through a reverse proxy in the platform. Figure 4-29 shows both actions.
 
-![Figure 4-29: Deploying a VRE (left) and accessing the VRE link through the Reverse proxy (right).](image4-29.avif)
+![Figure 4-29: Deploying a VRE (left) and accessing the VRE link through the Reverse proxy (right).](figures/image4-29.avif)
 
 Access to the data is performed through the GUI of the VRE. The VREs are based on Ubuntu 22.04 LTS workstations with LXDE as GUI. This environment is provided with tools, services and software libraries, as well as batch queues for non-interactive jobs. Detailed information on the usage of the job queues is provided in the platform documentation[3]. Figure 4-30 shows a snapshot of an instance of a VRE environment with access to the prostate data. This is accessed through a web browser, minimising the requirements of the user.
 
@@ -383,6 +383,7 @@ Every new ticket is assigned to the First Level Support Unit Team. This EUCAIM F
 For every reply you have in each ticket you will get an email from the EUCAIM Helpdesk system, informing you of all new activities related to each ticket. In order to leave the system, click in your initials icon, at the bottom left corner and in the “Sign out” button.
 
 For more information about EUCAIM Helpdesk, please refer to the EUCAIM Helpdesk End-User Guidelines at [https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk](https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk).
+
 
 
 
