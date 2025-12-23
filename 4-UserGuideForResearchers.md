@@ -339,9 +339,113 @@ datmat.materialize('xnat+https://xnat.health-ri.nl/search?projects=sandbox&subje
 
 The `datmat` package is based on the IOPlugin system of Fastr. See the documentation for the [XNATStorage IOPlugin](https://fastr.readthedocs.io/en/stable/_autogen/fastr.reference.html#xnatstorage) for more information on querying XNAT.
 
+## 4.10. Federated Processing
+
+The execution of federated jobs is performed through the Federated Processing dashboard (**FP Dashboard**). It supports three main interactions: (A) Monitoring the federated network, (B) Launching a federated experiment, and (C) Monitoring Job and Inspecting Results.
+
+### 4.10.1. Monitoring the Federated Network
+
+The **FP Dashboard** provides a dedicated view for monitoring the EUCAIM Federated Network to assess network readiness prior to launching federated analyses. It is accessible from the main navigation menu under "EUCAIM Network". This view lists all participating nodes (_aka_ Data Holders) and presents their current operational status.
+
+Information displayed on this page is obtained from the real-time monitoring endpoints exposed by the **FEM Orchestrator** (see [6\. Real time Data holders monitoring](https://docs.google.com/document/d/1zUkT1MqoleUtIAFJdWePr8I8qNoqpHrO/edit#heading=h.a67pnheq3qa8)). To ensure responsiveness, cached monitoring data is displayed immediately upon page load and refreshed at the beginning of each user session. A manual Reload action is also available to request an on-demand update.  To avoid necessary delay, resources endpoint is only executed after a successful heartbeat call (online/offline).
+
+The monitoring view reports the following information for each Data Holder:
+
+- Online/offline status of Data Holders
+- Data Holder response time
+- Resource summary, including  CPU, RAM, GPU, and Docker version
+- Tool readiness checks, including Docker image availability and checksum validation
+- SSL/TLS certificate validity
+
+![Figure 4-40: Interfaz de usuario gráfica, Aplicación, Teams.](figures/image4-50.png)
+
+**_Figure 4-40._** _The EUCAIM federated network as seen at the FP Dashboard._
+
+### 4.10.2. Launching a Federated Experiment
+
+**_Login via Life Sciences AAI_**
+
+The user authenticates through the EUCAIM Virtual Organisation using OIDC. The OpenVRE frontend redirects to the LS-AAI login page, and upon success, identity and access tokens are stored in the backend for subsequent calls to integrated EUCAIM services (e.g. **FEM-orchestrator**, Negotiator).
+
+| (a) | (b) |
+| --- | --- |
+| ![Interfaz de usuario gráfica, Aplicación](figures/image4-51.png) | ![Interfaz de usuario gráfica, Aplicación](figures/image4-52.png) |
+
+**_Figure 4-41._** _(a) FP Dashboard login via Life Science AAI; (b) FP Dashboard profile page displaying OIDC issued tokens_
+
+**_Home page_**
+
+After login, the homepage displays the list of federated software (FEM Workflows and FEM Bundles) as tiles. Each tile offers a brief description of the tool as well as two shortcuts for either running the software (directly opening the configuration form) or learning more about it by opening the software-specific documentation.
+
+The left navigation menu provides access to:
+
+- **My Workspace**: user's input files, results, and available operations
+- **Get Data**: mechanisms to upload or register data
+- **Run Tool / Visualizer**: searchable list of all available tools
+- **Helpdesk**: dashboard documentation and ticket-based support
+- **Admin**: admin-only features
+
+![Interfaz de usuario gráfica, Aplicación, Sitio web](figures/image4-53.png)
+**_Figure 4-42._**  _FP Dashboard home page_
+
+**_Dataset selection_**
+
+Input data must be available in the user workspace before it can be bound to a software:
+
+- User-provided files can be uploaded via Get Data → Upload Data.
+- Federated datasets from EUCAIM appear under Get Data → My Datasets after successful negotiations in the Negotiator. Selecting a dataset registers its URI (node_id:node/dataset/path) into the workspace so it can be used as input.
+
+![Interfaz de usuario gráfica, Aplicación](figures/image4-54.png)
+**_Figure 4-43._** _Remote dataset references (URIs) imported at the FP Dashboard workspace ready to be used in a federated run_
+
+**_Tool Selection_**
+
+Tools can be selected in multiple ways:
+
+- From the homepage (tiles).
+- From the searchable list under Run Tool / Visualiser.
+- From the Workspace: when users have already selected specific inputs, the Dashboard filters the available tools and presents only those compatible with the metadata of the selected files (file type, format, etc.)
+
+**_Federated Run configuration_**
+
+The FP Dashboard presents a structured configuration form with three blocks:
+
+- **Project Settings.** Includes FP Dashboard's specific metadata such as "Execution Name". A dedicated workspace folder is created for the run, storing all generated files and logs.
+- **Execution Settings.** Allows configuration of FEM-related parameters, including:
+  - Generic execution parameters (e.g. job timeout).
+  - Task- or container-specific arguments (only whitelisted parameters are exposed for security).
+  - FDN selector: choose participating nodes (aka, _Data Holders_). The selector dynamically enables only nodes that are currently online, approved for the selected software, and have the required container (version and consistency check) available.
+- **Input Settings.** Lets the user select which workspace files or dataset URIs will be bound to the tool inputs.
+
+![Interfaz de usuario gráfica, Aplicación](figures/image4-55.png)
+
+**_Figure 8._** _Generic FEM execution parameters as displayed in the Execution Box of the FP Dashboard_
+
+![Interfaz de usuario gráfica, Texto, Aplicación](figures/image4-56.png)
+**_Figure 9._** _FDN selectors associated to each FEM task as displayed in the Execution Box of the FP Dashboard_
+
+**_Execution submission_**
+
+Once the form is validated, OpenVRE triggers the FEM-RUNNER (see [7.2. User Journeys](https://docs.google.com/document/d/1zUkT1MqoleUtIAFJdWePr8I8qNoqpHrO/edit#heading=h.uu5p58rih4u7)). While the user is redirected to the monitoring view (see user journey B), FEM-RUNNER and the **FEM-orchestrator** perform the workflow resolution, role assignment, and task dispatching across nodes participating in the federated experiment.
+
+### 4.10.3.  Monitoring jobs and retrieving Results
+
+Once a federated experiment has been submitted, the user is redirected to the Workspace, where the Dashboard provides a consolidated and real-time representation of the experiment's lifecycle. This journey covers the period from submission to final retrieval of results.
+
+**_Job status_**
+
+The **FP Dashboard** periodically queries the polls **FEM-orchestrator** for job state changes (pending, running, completed) and the user can see the progress on the Workspace under the corresponding run folder.
+
+**_Logs Retrieval_**
+
+When the execution of an experiment ends, allowed output artifacts (e.g., derived datasets, metrics, etc) are shown. Currently, only "Log files" are automatically fetched from each node participating in the federated experiment and displayed to the end user. Error traces are also displayed in the FEM-orchestrator to support debugging. Users can display or download the files.
+
+![Interfaz de usuario gráfica, Aplicación](figures/image4-57.png)
+
+**_Figure 10._** _Log Files generated by a federated run as displayed in the workspace of the FP Dashboard_
 
 
-## 4.10. Helpdesk
+## 4.11. Helpdesk
 The EUCAIM helpdesk is a single point of contact to collect and reply to questions, incidents, requests, etc. The software responsible for the EUCAIM helpdesk is Zammad and an independent instance has been provided for the project.
 
 Currently, only authenticated/authorised users can access the helpdesk system. Therefore, it is necessary to authenticate yourself at the system so you can be authorised to use the helpdesk.
@@ -383,6 +487,7 @@ Every new ticket is assigned to the First Level Support Unit Team. This EUCAIM F
 For every reply you have in each ticket you will get an email from the EUCAIM Helpdesk system, informing you of all new activities related to each ticket. In order to leave the system, click in your initials icon, at the bottom left corner and in the “Sign out” button.
 
 For more information about EUCAIM Helpdesk, please refer to the EUCAIM Helpdesk End-User Guidelines at [https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk](https://confluence.egi.eu/display/EUCAIM/EUCAIM+Helpdesk+End-User+Guide/display/EUCAIM/EUCAIM+-+Helpdesk).
+
 
 
 
