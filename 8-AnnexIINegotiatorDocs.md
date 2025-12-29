@@ -2,8 +2,6 @@
 
 This annex shows the details of the documents required by the negotiator when requesting access to existing datasets, which are already exposed in the catalogue.
 
-REQUEST FOR DATA
-
 **APPLICATION DOCUMENTS (Data User-Researcher, Innovators, Members):**
 
 The documents has 6 main sections
