@@ -7,3 +7,4 @@
 * [5. User Guide for Software Providers](5-UserGuideSWProviders.md)
 * [6. User Guide for Data Holders](6-UserGuide4Members.md)
 * [Annex I. Registration of Users in the VO](7-AnnexI-RegistrationVO.md)
+* [Annex II. Dataset Access Request Template](8-AnnexIINegotiatorDocs.md)
