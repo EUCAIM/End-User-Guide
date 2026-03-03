@@ -176,7 +176,7 @@ This guide covers mainly the first two cases, as the federated processing will b
 The access to the data is performed through the nodes of the federation. Two reference nodes have been set up to store data from the centres who cannot implement a federated node and area allowed to transfer the data to the reference nodes, as well as to provide computing resources. Each reference node is based on a different technology to maximise flexibility. This document contains two subsections, each one for a different reference node.
 
 ## 4.8. Reference Node at UPV
-The UPV reference node is based on an evolution of a technology developed in the CHAIMELEON [https://chaimeleon.eu/]([https://chaimeleon.eu/) project. This technology has been enhanced in three directions:
+The UPV reference node is based on an evolution of a technology developed in the CHAIMELEON [https://chaimeleon.eu/](https://chaimeleon.eu/) project. This technology has been enhanced in three directions:
 
 - To provide multi-tenant support, allowing multiple projects and a finer granularity of the access permissions through Access Control Lists.
 - Integrated with a totally renewed image workstation software from QUIBIM (QP-Insights).
@@ -184,7 +184,7 @@ The UPV reference node is based on an evolution of a technology developed in the
 
 The UPV reference node is mainly intended for Data Scientists and supports both in-situ and federated processing.
 
-The entry point to the UPV reference node is the local catalogue. The local catalogue describes the datasets stored in the reference node and feeds the EUCAIM platform repository. Figure 4-25 shows the view of this catalogue with the information of one of the subprojects of CHAIMELEON.
+The entry point to the UPV reference node is the local catalogue ([https://eucaim-node.i3m.upv.es/](https://eucaim-node.i3m.upv.es/)). The local catalogue describes the datasets stored in the reference node and feeds the EUCAIM platform repository. Figure 4-25 shows the view of this catalogue with the information of one of the subprojects of CHAIMELEON.
 
 ![Figure 4-25: Reference UPV node, view of the CHAIMELEON OpenChallenge project.](figures/image4-25.avif)
 
