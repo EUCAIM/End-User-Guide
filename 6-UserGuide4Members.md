@@ -65,21 +65,21 @@ After selecting **upload of image data**, choose the project and timepoint for y
 
 The application will scan all patients, studies, and series present in the selected folder. Select the items you want to upload and start the process. The upload status updates dynamically. When complete, each item will be marked as uploaded or uploaded with errors. If an error occurs, a downloadable file describing the issue will be automatically generated. 
 
-![Figure 6.4.  Upload of image data. (Left) Select patients to upload. (Right) Status of the upload.  ](figures/image6-4.avif)
+![Figure 6.4. Upload of image data. (Left) Select patients to upload. (Right) Status of the upload.  ](figures/image6-4.avif)
 
 **Upload of clinical data** 
 
 After selecting **upload of clinical data** select the target project. Then, upload the file containing the clinical data. Both Excel and CSV formats are supported. Please ensure that **the first column is labeled PatientID** and the values in this column **match the DICOM PatientID tag** (0010, 0020) of your image data. This will ensure your clinical data is correctly linked to the image data. As with image uploads, any errors will generate a downloadable tabular report. 
 
 
-![Figure 6.5.  Upload of clinical data. (Left) Select the patients which clinical data you want to update. (Right) Upload status.](figures/image6-5.png)
+![Figure 6.5. Upload of clinical data. (Left) Select the patients which clinical data you want to update. (Right) Upload status.](figures/image6-5.png)
 
 
 **Accessing Uploaded Data** 
 
 Once uploaded, the exams can be accessed through the QP-Insights platform at: https://qpinsights.eucaim-node.i3m.upv.es/cases/subjects. Uploaded images can be viewed using the integrated **DICOM Viewer**. The DICOM Viewer **supports the annotation of data** in the reference node, offering tools to extract ROI measurements and generate segmentation masks. Annotations can be created **manually from scratch or semi-automatically**. In the latter case, AI tools can be executed to produce preliminary annotations that clinicians can then refine and correct, thereby accelerating the annotation workflow. 
 
-![Figure 6.6.  (Left) Uploaded subjects view in the QP-Insights platform. (Right) Integrated DICOM Viewer.  ](figures/image6-6.avif)
+![Figure 6.6. (Left) Uploaded subjects view in the QP-Insights platform. (Right) Integrated DICOM Viewer.  ](figures/image6-6.avif)
 
 
 #### 6.2.2.2 Case-by-case upload via QP-Insights Web Interface:
@@ -88,13 +88,13 @@ To upload data using the web interface (no installation required), access https:
 
 To begin importing a new imaging exam, click the “Import exam” icon located in the upper-right corner of the workspace.
 
-![Figure 6.7.  (Left) To import a new imaging exam, click on the icon “Import exam” in the upper right corner of the workspace. ](figures/image6-7.avif)
+![Figure 6.7. (Left) To import a new imaging exam, click on the icon “Import exam” in the upper right corner of the workspace. ](figures/image6-7.avif)
 
 You will be prompted to select the project in which you want to upload the exam. Next, choose the subject from the drop-down list.
 If the subject does not yet exist, type the desired subject name. A button will appear to the right of the search field allowing you to create the new subject when no match is found.
 After that, select the appropriate timepoint from the drop-down menu.
 
-![Figure 6.8.  (Left) Project selection.  (Center) Subject selection. (Right) Timepoint selection. ](figures/image6-8.avif)
+![Figure 6.8. (Left) Project selection. (Center) Subject selection. (Right) Timepoint selection. ](figures/image6-8.avif)
 
 To add imaging data, click inside the upload box to browse for your DICOM files or drag and drop them directly into the window.
 Once selected, the interface will display the list of exams identified in the upload. All series are automatically checked for upload, but you may deselect any series you do not wish to include by unticking the corresponding boxes in the "Included" column.
@@ -103,19 +103,19 @@ Once selected, the interface will display the list of exams identified in the up
 
 During the upload, you will see live progress updates. When the process completes, a summary of the import results will appear. Select “Go to Cases” to close the summary and return to the Cases view.
 
-![Figure 6.10. (Left) Upload progress. (Right)  Summary of the exam import process. ](figures/image6-10.avif)
+![Figure 6.10. (Left) Upload progress. (Right) Summary of the exam import process. ](figures/image6-10.avif)
 
 If your project includes an electronic Case Report Form (eCRF), you can fill it out manually for each subject. Open the eCRF by clicking the file icon in the Cases view. An eCRF template must be uploaded for the project beforehand. The form will then be displayed and can be completed directly within the interface.
 
-![Figure 6.11.  (Left) Open the eCRF of a subject. (Right) Example of an eCRF template of a subject.](figures/image6-11.avif)
+![Figure 6.11. (Left) Open the eCRF of a subject. (Right) Example of an eCRF template of a subject.](figures/image6-11.avif)
 
 Additionally, the QP-Insights application includes a set of DICOMWeb standards-based functionalities for working with DICOM files via API.
 
 
 #### 6.2.2.3. Creating the dataset:
-Datasets uploaded to UPV reference node won’t be immediately published, it is necessary first to create a dedicated dataset from the data that was uploaded to the platform. QP-Insights implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user will be able to select subjects or cases of a project, and create a dataset specifying the name, description and purpose, along with the dataset type and method as shown in Figure 6.12. The dataset creation will later be reflected in the dataset explorer. 
+Datasets uploaded to UPV reference node won’t be immediately published, it is necessary first to create a dedicated dataset from the data that was uploaded to the platform. QP-Insights implements a dedicated workflow to create datasets from the data previously uploaded to the platform. The user with the role of *dataset manager* will be able to select subjects or cases of a project. When one o more cases are selected, the button "Export dataset" appears to allow the dataset creation. In the next page, the user will be asked for a name, description and purpose, along with the dataset type and method as shown in Figure 6.12. The dataset creation will later be reflected in the dataset explorer. 
 
-![Figure 6.12. (Left) Manually select the cases that will be part of a dataset.  (Right) Complete dataset details and configuration before exporting it.](figures/image6-12.avif)
+![Figure 6.12. (Left) Manually select the cases that will be part of a dataset. (Right) Complete dataset details and configuration before exporting it.](figures/image6-12.avif)
 
 #### 6.2.2.4. Upload metadata
 The description of this user action refers to the release of a dataset as a discoverable one. This implies two steps:
